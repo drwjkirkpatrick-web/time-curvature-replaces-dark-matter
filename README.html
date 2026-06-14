@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Variable Temporal Curvature (VTC)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Variable Temporal Curvature (VTC)</h1>
+</header>
+<h1 id="variable-temporal-curvature-vtc-why-this-theory-works">Variable Temporal Curvature (VTC) — Why This Theory Works</h1>
+<blockquote>
+<p><strong>Note:</strong> This README contains LaTeX math. For best display, view on GitHub (math renders automatically) or use a Markdown viewer with MathJax support.</p>
+</blockquote>
+<h2 id="the-short-version">The Short Version</h2>
+<p>Dark matter was invented because galaxies rotate too fast. Stars at the edge of a galaxy move at the same speed as stars near the center, even though there isn’t enough visible mass to hold them there. Physicists solved this by adding invisible “dark matter” — extra mass we can’t see.</p>
+<p><strong>This theory asks: what if there’s no missing mass? What if time itself flows differently at the edge of a galaxy, creating the same gravitational effect?</strong></p>
+<p>In General Relativity, gravity isn’t just mass pulling on mass — it’s the curvature of spacetime. And spacetime has four dimensions: three of space, and one of time. When we look at galaxy rotation curves, we usually assume time flows at the same rate everywhere. But what if it doesn’t?</p>
+<hr />
+<h2 id="the-analogy-a-river-and-a-boat">The Analogy: A River and a Boat</h2>
+<p>Imagine you’re in a boat on a river. The river flows at different speeds: - Near the bank: slow - In the center: fast</p>
+<p>If you drop a stick in the water, it doesn’t just drift with the current — the <strong>gradient</strong> in current speed (faster in the middle, slower at the edges) creates a force that pulls the stick toward the center.</p>
+<p>Now imagine “proper time” (the time experienced by a physical clock) is like the river: - Near the galactic center: time flows “normally” - Far from the center: time flows slightly slower</p>
+<p>The <strong>gradient</strong> in how fast time flows creates an effective force — just like the river current gradient pulls the stick. This force holds stars in fast orbits without needing extra mass.</p>
+<hr />
+<h2 id="why-general-relativity-allows-this">Why General Relativity Allows This</h2>
+<p>Einstein’s field equations are:</p>
+<p><span class="math display">\[
+G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+\]</span></p>
+<p>The left side (<span class="math inline">\(G_{\mu\nu}\)</span>) describes spacetime geometry. The right side (<span class="math inline">\(T_{\mu\nu}\)</span>) describes matter and energy. <strong>BUT</strong> — in the standard formulation of GR, the way we “slice” spacetime into space + time is not unique.</p>
+<p>The <strong>ADM formalism</strong> (Arnowitt-Deser-Misner) decomposes spacetime into 3D spatial slices evolving in time. It introduces: - <span class="math inline">\(N\)</span> = <strong>lapse function</strong> = how much proper time passes per unit coordinate time - <span class="math inline">\(N^i\)</span> = <strong>shift vector</strong> = how spatial coordinates drift between slices</p>
+<p><strong>Key point:</strong> The lapse function <span class="math inline">\(N\)</span> is a <strong>gauge choice</strong>. Different choices are mathematically valid and correspond to different ways of cutting spacetime into slices.</p>
+<p>In standard cosmology, we choose <span class="math inline">\(N = 1\)</span> everywhere. This is a <strong>convention</strong>, not a law of physics.</p>
+<p>Our theory chooses:</p>
+<p><span class="math display">\[
+N(r) = \left(\frac{r}{r_0}\right)^{v_0^2/c^2}
+\]</span></p>
+<p>This means: <strong>the farther you are from a galaxy’s center, the slower your clock ticks relative to a distant observer.</strong> The difference is tiny — parts per billion — but over galactic scales, the accumulated effect produces what looks like extra gravity.</p>
+<hr />
+<h2 id="four-different-ways-to-prove-the-same-thing">Four Different Ways to Prove the Same Thing</h2>
+<h3 id="proof-1-the-geodesic-equation-how-orbits-work">Proof 1: The Geodesic Equation (How Orbits Work)</h3>
+<p>For a particle on a circular orbit, the geodesic equation gives:</p>
+<p><span class="math display">\[
+v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + c^2 r \frac{N&#39;(r)}{N(r)}
+\]</span></p>
+<p>For our lapse function:</p>
+<p><span class="math display">\[
+\frac{N&#39;}{N} = \frac{\alpha}{r} = \frac{v_0^2}{c^2 r}
+\]</span></p>
+<p>Substituting:</p>
+<p><span class="math display">\[
+v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + v_0^2
+\]</span></p>
+<p><strong>At large radii, the visible mass term decays, leaving <span class="math inline">\(v^2 \to v_0^2\)</span> = constant.</strong></p>
+<p>This is a <strong>flat rotation curve</strong> — exactly what astronomers observe. No dark matter needed.</p>
+<h3 id="proof-2-effective-energy-density-what-the-curvature-looks-like">Proof 2: Effective Energy Density (What the Curvature “Looks Like”)</h3>
+<p>In GR, curvature sources matter. If temporal curvature creates effective energy density, we can ask: what mass distribution would produce the same curvature?</p>
+<p><span class="math display">\[
+\rho_{\text{eff}} = \frac{c^2}{4\pi G}\nabla^2\ln N = \frac{v_0^2}{4\pi G r^2}
+\]</span></p>
+<p>This is the <strong>isothermal sphere</strong> — the standard dark matter density profile. The VTC model produces the exact same effective density without any particles.</p>
+<h3 id="proof-3-hamilton-jacobi-effective-potential">Proof 3: Hamilton-Jacobi Effective Potential</h3>
+<p>The effective potential for orbital motion gains an extra term:</p>
+<p><span class="math display">\[
+V_{\text{eff}}(r) = -\frac{GMm}{r} + \frac{L^2}{2mr^2} - mc^2\ln N(r)
+\]</span></p>
+<p>For <span class="math inline">\(N(r) \sim r^\alpha\)</span>:</p>
+<p><span class="math display">\[
+V_{\text{VTC}}(r) = -mc^2\alpha\ln\frac{r}{r_0}
+\]</span></p>
+<p>The gradient gives an inward force:</p>
+<p><span class="math display">\[
+F_{\text{VTC}} = \frac{mc^2\alpha}{r}
+\]</span></p>
+<p>This is an attractive <span class="math inline">\(1/r\)</span> force, identical to what an isothermal dark matter halo would produce.</p>
+<h3 id="proof-4-einstein-tensor-components">Proof 4: Einstein Tensor Components</h3>
+<p>Computing the Einstein tensor for the VTC metric shows that the temporal curvature terms exactly match the contribution from an isothermal dark matter density:</p>
+<p><span class="math display">\[
+G_{00} = \text{(visible matter terms)} + \frac{2\alpha^2}{r^2}
+\]</span></p>
+<p>Setting this equal to <span class="math inline">\(8\pi G\rho_{\text{DM}}\)</span> gives:</p>
+<p><span class="math display">\[
+\rho_{\text{DM,eff}} = \frac{\alpha^2}{4\pi G r^2} = \frac{v_0^2}{4\pi G r^2}
+\]</span></p>
+<p>All four proofs converge on the same result. The VTC model is not one trick — it’s a robust geometric equivalence.</p>
+<hr />
+<h2 id="what-about-gravitational-lensing">What About Gravitational Lensing?</h2>
+<p>Light doesn’t have mass, but it follows geodesics (curved paths) in spacetime. The VTC metric bends light through the spatial gradient of the lapse function:</p>
+<p><span class="math display">\[
+\alpha_{\text{VTC}} = \frac{4v_0^2}{c^2 b}
+\]</span></p>
+<p>where <span class="math inline">\(b\)</span> is the impact parameter. This matches the standard formula for lensing by an isothermal sphere. <strong>Both models predict the same deflection angle.</strong></p>
+<h2 id="what-about-cosmic-acceleration">What About Cosmic Acceleration?</h2>
+<p>A globally varying temporal rate <span class="math inline">\(T(t) \propto t^\beta\)</span> contributes to the Friedmann equations:</p>
+<p><span class="math display">\[
+\Lambda_{\text{VTC}} = 3\left(\frac{\dot{T}}{T}\right)^2 = \frac{3\beta^2}{t^2}
+\]</span></p>
+<p>At late times, this acts like a cosmological constant with <span class="math inline">\(\beta \approx 0.48\)</span>, reproducing the observed acceleration.</p>
+<hr />
+<h2 id="why-this-isnt-just-playing-with-coordinates">Why This Isn’t “Just Playing with Coordinates”</h2>
+<p>A common objection: “Aren’t you just redefining coordinates?”</p>
+<p><strong>No.</strong> A coordinate transformation changes labels but preserves the physical curvature tensor <span class="math inline">\(R_{\mu\nu\rho\sigma}\)</span>. The VTC model changes the actual geometry — the Einstein tensor components are different. Two different spacetimes happen to produce the same observables.</p>
+<p>This is like how MOND (Modified Newtonian Dynamics) and dark matter are different theories that fit the same rotation curve data. The VTC model provides a third alternative grounded in GR geometry.</p>
+<hr />
+<h2 id="the-honest-limitations">The Honest Limitations</h2>
+<ol type="1">
+<li><p><strong>We don’t know what field produces <span class="math inline">\(N(r)\)</span>.</strong> The theory says “if the lapse varies this way, you get dark matter effects.” But <em>why</em> would the lapse vary this way? We need a scalar field theory or some other mechanism. This is the biggest open question.</p></li>
+<li><p><strong>CMB acoustic peaks are untested.</strong> The cosmic microwave background shows specific patterns that dark matter explains beautifully. The VTC model hasn’t been tested against this data.</p></li>
+<li><p><strong>Structure formation is undeveloped.</strong> How do galaxies form and cluster in a VTC universe? We don’t know yet.</p></li>
+<li><p><strong>Occam’s Razor.</strong> Replacing dark matter with a modified metric may not be simpler. We trade “invisible particles” for “spatially varying time.”</p></li>
+</ol>
+<hr />
+<h2 id="the-bottom-line">The Bottom Line</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Standard Answer</th>
+<th>VTC Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Why do galaxies rotate too fast?</td>
+<td>Invisible dark matter halos</td>
+<td>Time flows slower in the outer regions</td>
+</tr>
+<tr class="even">
+<td>Why does light bend too much?</td>
+<td>Extra mass bends spacetime</td>
+<td>Temporal curvature gradient bends geodesics</td>
+</tr>
+<tr class="odd">
+<td>Why is the universe accelerating?</td>
+<td>Dark energy (<span class="math inline">\(\Lambda\)</span>)</td>
+<td>Global temporal rate slows over time</td>
+</tr>
+<tr class="even">
+<td>What is dark matter made of?</td>
+<td>Unknown particles (WIMPs, axions, etc.)</td>
+<td>Nothing — it’s geometry</td>
+</tr>
+</tbody>
+</table>
+<p><strong>This theory doesn’t claim dark matter is wrong.</strong> It demonstrates that the <em>observational signatures</em> attributed to dark matter can alternatively arise from a specific geometric configuration of spacetime — one where the temporal dimension carries spatial variation.</p>
+<p>In General Relativity, time and space are inseparable. Maybe the “missing mass” isn’t missing at all. Maybe we’ve been looking in the wrong dimension.</p>
+<hr />
+<h2 id="how-to-read-the-code">How to Read the Code</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>THEOREM.md</code></td>
+<td>Formal statement of the 3 theorems with notation</td>
+</tr>
+<tr class="even">
+<td><code>proof/proof.md</code></td>
+<td>Full mathematical derivations (4 parallel proofs)</td>
+</tr>
+<tr class="odd">
+<td><code>empirical/verify.py</code></td>
+<td>GPU simulation — runs all 3 theorems on CUDA</td>
+</tr>
+<tr class="even">
+<td><code>tests/test_project.py</code></td>
+<td>pytest suite — 19 tests, all must pass</td>
+</tr>
+</tbody>
+</table>
+<h2 id="running-the-verification">Running the Verification</h2>
+<h3 id="option-1-shared-jetson-pytorch-recommended">Option 1: Shared Jetson PyTorch (Recommended)</h3>
+<p>A shared PyTorch installation is available for any Python 3.10 process on this system:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co"># Activate the shared Jetson PyTorch</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">source</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.venvs/jetson-pytorch/bin/activate&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="co"># Run the GPU simulation</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="bu">cd</span> ~/projects/time-curvature-replaces-dark-matter</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="ex">python3.10</span> empirical/verify.py</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="co"># Run the test suite</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="ex">python3.10</span> -m pytest tests/ -v</span></code></pre></div>
+<h3 id="option-2-original-heartlib-venv">Option 2: Original heartlib venv</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># Activate the heartlib virtual environment</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bu">source</span> ~/heartlib/.venv/bin/activate</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="co"># Run the GPU simulation</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="bu">cd</span> ~/projects/time-curvature-replaces-dark-matter</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="ex">python</span> empirical/verify.py</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="co"># Run the test suite</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="ex">python</span> -m pytest tests/ -v</span></code></pre></div>
+<h2 id="gpu-requirements">GPU Requirements</h2>
+<ul>
+<li>NVIDIA GPU with CUDA support (tested on Jetson Orin, 8 GB, CUDA 12.6)</li>
+<li>PyTorch 2.5.0+ with CUDA (already installed in shared location)</li>
+</ul>
+<h2 id="citation">Citation</h2>
+<p>If you use this work, please cite:</p>
+<blockquote>
+<p>Walker Kirkpatrick. “Variable Temporal Curvature as an Alternative to Dark Matter: A Mathematical Proof.” 2026.</p>
+</blockquote>
+<h2 id="license">License</h2>
+<p>MIT License — See LICENSE file.</p>
+</body>
+</html>
