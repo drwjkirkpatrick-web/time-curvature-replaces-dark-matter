@@ -1,6 +1,9 @@
 # Variable Temporal Curvature (VTC) — Why This Theory Works
 
-> **Note:** This README contains LaTeX math. For best display, view on GitHub (math renders automatically) or use a Markdown viewer with MathJax support.
+> **Note:** This README contains LaTeX math. For best display, view on **GitHub** (math renders automatically) or use a Markdown viewer with MathJax support.
+> If you are reading this in plain text, each formula is followed by a plain-English description in parentheses.
+
+---
 
 ## The Short Version
 
@@ -36,6 +39,8 @@ $$
 G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
 $$
 
+*(The Einstein tensor on the left equals energy-momentum tensor on the right, scaled by constants.)*
+
 The left side ($G_{\mu\nu}$) describes spacetime geometry. The right side ($T_{\mu\nu}$) describes matter and energy. **BUT** — in the standard formulation of GR, the way we "slice" spacetime into space + time is not unique.
 
 The **ADM formalism** (Arnowitt-Deser-Misner) decomposes spacetime into 3D spatial slices evolving in time. It introduces:
@@ -52,6 +57,8 @@ $$
 N(r) = \left(\frac{r}{r_0}\right)^{v_0^2/c^2}
 $$
 
+*(The lapse function N grows as a power law of radius r, with exponent v₀² divided by c².)*
+
 This means: **the farther you are from a galaxy's center, the slower your clock ticks relative to a distant observer.** The difference is tiny — parts per billion — but over galactic scales, the accumulated effect produces what looks like extra gravity.
 
 ---
@@ -66,11 +73,15 @@ $$
 v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + c^2 r \frac{N'(r)}{N(r)}
 $$
 
+*(Orbital velocity squared equals Newtonian term plus a term from the lapse gradient.)*
+
 For our lapse function:
 
 $$
 \frac{N'}{N} = \frac{\alpha}{r} = \frac{v_0^2}{c^2 r}
 $$
+
+*(The logarithmic derivative of N is α over r, where α = v₀²/c².)*
 
 Substituting:
 
@@ -78,7 +89,11 @@ $$
 v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + v_0^2
 $$
 
+*(Velocity squared equals visible-mass Newtonian term plus a constant v₀².)*
+
 **At large radii, the visible mass term decays, leaving $v^2 \to v_0^2$ = constant.**
+
+*(Far from the galaxy, v² approaches a flat constant value.)*
 
 This is a **flat rotation curve** — exactly what astronomers observe. No dark matter needed.
 
@@ -90,6 +105,8 @@ $$
 \rho_{\text{eff}} = \frac{c^2}{4\pi G}\nabla^2\ln N = \frac{v_0^2}{4\pi G r^2}
 $$
 
+*(Effective density ρ equals c² over 4πG times the Laplacian of log N, which simplifies to v₀² over 4πG r².)*
+
 This is the **isothermal sphere** — the standard dark matter density profile. The VTC model produces the exact same effective density without any particles.
 
 ### Proof 3: Hamilton-Jacobi Effective Potential
@@ -100,17 +117,23 @@ $$
 V_{\text{eff}}(r) = -\frac{GMm}{r} + \frac{L^2}{2mr^2} - mc^2\ln N(r)
 $$
 
+*(Effective potential = Newtonian gravity + centrifugal barrier + VTC term from log N.)*
+
 For $N(r) \sim r^\alpha$:
 
 $$
 V_{\text{VTC}}(r) = -mc^2\alpha\ln\frac{r}{r_0}
 $$
 
+*(The VTC potential is proportional to the logarithm of radius.)*
+
 The gradient gives an inward force:
 
 $$
 F_{\text{VTC}} = \frac{mc^2\alpha}{r}
 $$
+
+*(The VTC force falls off as 1/r, like an isothermal dark matter halo.)*
 
 This is an attractive $1/r$ force, identical to what an isothermal dark matter halo would produce.
 
@@ -122,11 +145,15 @@ $$
 G_{00} = \text{(visible matter terms)} + \frac{2\alpha^2}{r^2}
 $$
 
+*(The Einstein tensor gets an extra term proportional to α² over r² from the lapse.)*
+
 Setting this equal to $8\pi G\rho_{\text{DM}}$ gives:
 
 $$
 \rho_{\text{DM,eff}} = \frac{\alpha^2}{4\pi G r^2} = \frac{v_0^2}{4\pi G r^2}
 $$
+
+*(The equivalent dark matter density is v₀² over 4πG r² — the isothermal sphere.)*
 
 All four proofs converge on the same result. The VTC model is not one trick — it's a robust geometric equivalence.
 
@@ -140,6 +167,8 @@ $$
 \alpha_{\text{VTC}} = \frac{4v_0^2}{c^2 b}
 $$
 
+*(Lensing deflection angle α = 4v₀² / c²b, where b is the impact parameter.)*
+
 where $b$ is the impact parameter. This matches the standard formula for lensing by an isothermal sphere. **Both models predict the same deflection angle.**
 
 ## What About Cosmic Acceleration?
@@ -149,6 +178,8 @@ A globally varying temporal rate $T(t) \propto t^\beta$ contributes to the Fried
 $$
 \Lambda_{\text{VTC}} = 3\left(\frac{\dot{T}}{T}\right)^2 = \frac{3\beta^2}{t^2}
 $$
+
+*(An effective cosmological constant Λ = 3(Ṫ/T)² = 3β²/t².)*
 
 At late times, this acts like a cosmological constant with $\beta \approx 0.48$, reproducing the observed acceleration.
 
@@ -236,6 +267,16 @@ python -m pytest tests/ -v
 
 - NVIDIA GPU with CUDA support (tested on Jetson Orin, 8 GB, CUDA 12.6)
 - PyTorch 2.5.0+ with CUDA (already installed in shared location)
+
+## Alternative Formats
+
+If the math formulas above do not display correctly in your viewer, try these:
+
+| Format | File | Best For |
+|---|---|---|
+| **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser — renders all equations automatically |
+| **PDF** (typeset) | [`VTC-README.pdf`](./VTC-README.pdf) | Any PDF viewer — math is pre-typeset |
+| **Markdown** | [`README.md`](./README.md) | GitHub.com only — other renderers may show raw LaTeX |
 
 ## Citation
 
