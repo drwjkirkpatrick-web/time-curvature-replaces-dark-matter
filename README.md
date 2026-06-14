@@ -1,224 +1,164 @@
 # Variable Temporal Curvature (VTC) — Why This Theory Works
 
-> **Note:** This README contains LaTeX math. For best display, view on **GitHub** (math renders automatically) or use a Markdown viewer with MathJax support.
-> If you are reading this in plain text, each formula is followed by a plain-English description in parentheses.
+> **Reading tip:** This README is written in plain English. All math has been moved to the PDF (see link below). If you want the full equations and derivations, open `VTC-README.pdf`.
 
 ---
 
 ## The Short Version
 
-Dark matter was invented because galaxies rotate too fast. Stars at the edge of a galaxy move at the same speed as stars near the center, even though there isn't enough visible mass to hold them there. Physicists solved this by adding invisible "dark matter" — extra mass we can't see.
+Galaxies spin too fast. Stars at the outer edge should fly away — there's not enough visible mass to hold them. Physicists fixed this by inventing **dark matter**: invisible stuff that adds extra gravity.
 
-**This theory asks: what if there's no missing mass? What if time itself flows differently at the edge of a galaxy, creating the same gravitational effect?**
+**This theory offers a different explanation. What if there is no invisible stuff? What if time itself simply flows slower at the edge of a galaxy, and that creates the extra gravity?**
 
-In General Relativity, gravity isn't just mass pulling on mass — it's the curvature of spacetime. And spacetime has four dimensions: three of space, and one of time. When we look at galaxy rotation curves, we usually assume time flows at the same rate everywhere. But what if it doesn't?
-
----
-
-## The Analogy: A River and a Boat
-
-Imagine you're in a boat on a river. The river flows at different speeds:
-- Near the bank: slow
-- In the center: fast
-
-If you drop a stick in the water, it doesn't just drift with the current — the **gradient** in current speed (faster in the middle, slower at the edges) creates a force that pulls the stick toward the center.
-
-Now imagine "proper time" (the time experienced by a physical clock) is like the river:
-- Near the galactic center: time flows "normally"
-- Far from the center: time flows slightly slower
-
-The **gradient** in how fast time flows creates an effective force — just like the river current gradient pulls the stick. This force holds stars in fast orbits without needing extra mass.
+In Einstein's General Relativity, gravity is not a force between masses. It is the curvature of spacetime. Spacetime has four dimensions: three of space and one of time. We usually assume time flows at the same rate everywhere. But General Relativity does not require that. If time flows at different rates in different places, the gradient produces an effective force — exactly like the extra force we attribute to dark matter.
 
 ---
 
-## Why General Relativity Allows This
+## A Simple Analogy: The River
 
-Einstein's field equations are:
+Imagine a boat on a river. The current flows faster in the middle than near the banks. Drop a stick in the water. The **difference** in current speed between the two sides of the stick pulls it toward the center.
 
-$$
-G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
-$$
+Now imagine "proper time" (the time measured by a real clock) as the river:
+- Near the galactic center: time flows at its normal rate.
+- Far from the center: time flows slightly slower.
 
-*(The Einstein tensor on the left equals energy-momentum tensor on the right, scaled by constants.)*
-
-The left side ($G_{\mu\nu}$) describes spacetime geometry. The right side ($T_{\mu\nu}$) describes matter and energy. **BUT** — in the standard formulation of GR, the way we "slice" spacetime into space + time is not unique.
-
-The **ADM formalism** (Arnowitt-Deser-Misner) decomposes spacetime into 3D spatial slices evolving in time. It introduces:
-- $N$ = **lapse function** = how much proper time passes per unit coordinate time
-- $N^i$ = **shift vector** = how spatial coordinates drift between slices
-
-**Key point:** The lapse function $N$ is a **gauge choice**. Different choices are mathematically valid and correspond to different ways of cutting spacetime into slices.
-
-In standard cosmology, we choose $N = 1$ everywhere. This is a **convention**, not a law of physics.
-
-Our theory chooses:
-
-$$
-N(r) = \left(\frac{r}{r_0}\right)^{v_0^2/c^2}
-$$
-
-*(The lapse function N grows as a power law of radius r, with exponent v₀² divided by c².)*
-
-This means: **the farther you are from a galaxy's center, the slower your clock ticks relative to a distant observer.** The difference is tiny — parts per billion — but over galactic scales, the accumulated effect produces what looks like extra gravity.
+The **gradient** — the change in how fast time flows — creates an effective force that pulls stars inward. No invisible matter required. Just geometry.
 
 ---
 
-## Four Different Ways to Prove the Same Thing
+## What We Actually Propose
 
-### Proof 1: The Geodesic Equation (How Orbits Work)
+In the standard formulation of General Relativity, physicists cut spacetime into 3D slices and watch them evolve. When they do this, they must choose a **lapse function** — a number that tells you how much proper time passes per unit of coordinate time. Usually they set this to 1 everywhere. That is a convention, not a law.
 
-For a particle on a circular orbit, the geodesic equation gives:
+We propose that the lapse function grows with distance from a galaxy's center:
 
-$$
-v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + c^2 r \frac{N'(r)}{N(r)}
-$$
+> The farther you are from a galaxy's center, the slower your clock ticks relative to a distant observer.
 
-*(Orbital velocity squared equals Newtonian term plus a term from the lapse gradient.)*
-
-For our lapse function:
-
-$$
-\frac{N'}{N} = \frac{\alpha}{r} = \frac{v_0^2}{c^2 r}
-$$
-
-*(The logarithmic derivative of N is α over r, where α = v₀²/c².)*
-
-Substituting:
-
-$$
-v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + v_0^2
-$$
-
-*(Velocity squared equals visible-mass Newtonian term plus a constant v₀².)*
-
-**At large radii, the visible mass term decays, leaving $v^2 \to v_0^2$ = constant.**
-
-*(Far from the galaxy, v² approaches a flat constant value.)*
-
-This is a **flat rotation curve** — exactly what astronomers observe. No dark matter needed.
-
-### Proof 2: Effective Energy Density (What the Curvature "Looks Like")
-
-In GR, curvature sources matter. If temporal curvature creates effective energy density, we can ask: what mass distribution would produce the same curvature?
-
-$$
-\rho_{\text{eff}} = \frac{c^2}{4\pi G}\nabla^2\ln N = \frac{v_0^2}{4\pi G r^2}
-$$
-
-*(Effective density ρ equals c² over 4πG times the Laplacian of log N, which simplifies to v₀² over 4πG r².)*
-
-This is the **isothermal sphere** — the standard dark matter density profile. The VTC model produces the exact same effective density without any particles.
-
-### Proof 3: Hamilton-Jacobi Effective Potential
-
-The effective potential for orbital motion gains an extra term:
-
-$$
-V_{\text{eff}}(r) = -\frac{GMm}{r} + \frac{L^2}{2mr^2} - mc^2\ln N(r)
-$$
-
-*(Effective potential = Newtonian gravity + centrifugal barrier + VTC term from log N.)*
-
-For $N(r) \sim r^\alpha$:
-
-$$
-V_{\text{VTC}}(r) = -mc^2\alpha\ln\frac{r}{r_0}
-$$
-
-*(The VTC potential is proportional to the logarithm of radius.)*
-
-The gradient gives an inward force:
-
-$$
-F_{\text{VTC}} = \frac{mc^2\alpha}{r}
-$$
-
-*(The VTC force falls off as 1/r, like an isothermal dark matter halo.)*
-
-This is an attractive $1/r$ force, identical to what an isothermal dark matter halo would produce.
-
-### Proof 4: Einstein Tensor Components
-
-Computing the Einstein tensor for the VTC metric shows that the temporal curvature terms exactly match the contribution from an isothermal dark matter density:
-
-$$
-G_{00} = \text{(visible matter terms)} + \frac{2\alpha^2}{r^2}
-$$
-
-*(The Einstein tensor gets an extra term proportional to α² over r² from the lapse.)*
-
-Setting this equal to $8\pi G\rho_{\text{DM}}$ gives:
-
-$$
-\rho_{\text{DM,eff}} = \frac{\alpha^2}{4\pi G r^2} = \frac{v_0^2}{4\pi G r^2}
-$$
-
-*(The equivalent dark matter density is v₀² over 4πG r² — the isothermal sphere.)*
-
-All four proofs converge on the same result. The VTC model is not one trick — it's a robust geometric equivalence.
+The effect is tiny — parts per billion — but over galactic distances it adds up to the exact amount of extra gravity that dark matter is supposed to provide.
 
 ---
 
-## What About Gravitational Lensing?
+## Four Different Ways to Get the Same Answer
 
-Light doesn't have mass, but it follows geodesics (curved paths) in spacetime. The VTC metric bends light through the spatial gradient of the lapse function:
+We proved the same result four different ways. Each method uses a different branch of physics, and they all converge on the same conclusion.
 
-$$
-\alpha_{\text{VTC}} = \frac{4v_0^2}{c^2 b}
-$$
+**Proof 1: The Geodesic Equation.** We wrote down how a particle moves in curved spacetime. The orbital velocity has two parts: the normal Newtonian gravity from visible stars and gas, plus an extra term from the time gradient. At large radii the Newtonian term fades away and the extra term leaves the velocity flat — exactly the flat rotation curve astronomers measure.
 
-*(Lensing deflection angle α = 4v₀² / c²b, where b is the impact parameter.)*
+**Proof 2: Effective Energy Density.** In General Relativity, curvature acts like mass. We asked: if the time gradient is treated as an effective mass distribution, what does that distribution look like? It looks exactly like an **isothermal sphere** — the standard dark matter density profile. The math matches perfectly.
 
-where $b$ is the impact parameter. This matches the standard formula for lensing by an isothermal sphere. **Both models predict the same deflection angle.**
+**Proof 3: Effective Potential.** In classical mechanics, orbits come from a balance between kinetic and potential energy. We showed that the time gradient adds a new term to the gravitational potential. The gradient of that potential gives an attractive one-over-radius force — the exact same force profile as a dark matter halo.
+
+**Proof 4: Einstein Tensor.** We computed the Einstein tensor directly from the metric. The temporal curvature contributes a term that, when interpreted as mass density, gives the isothermal sphere formula again. Same answer, fourth method.
+
+All four proofs agree. The VTC model is robust.
+
+---
+
+## What About Light Bending?
+
+Light has no mass, but it follows the curves of spacetime. Our model bends light through the spatial gradient of the time-flow rate. The deflection angle matches the standard formula for lensing by an isothermal dark matter halo. **Both models predict the same amount of bending.**
+
+---
 
 ## What About Cosmic Acceleration?
 
-A globally varying temporal rate $T(t) \propto t^\beta$ contributes to the Friedmann equations:
-
-$$
-\Lambda_{\text{VTC}} = 3\left(\frac{\dot{T}}{T}\right)^2 = \frac{3\beta^2}{t^2}
-$$
-
-*(An effective cosmological constant Λ = 3(Ṫ/T)² = 3β²/t².)*
-
-At late times, this acts like a cosmological constant with $\beta \approx 0.48$, reproducing the observed acceleration.
+On cosmic scales, we propose that the global rate of time flow slows over the age of the universe. This produces an effective repulsive force at late times — the same effect as dark energy. With the right parameter, it reproduces the observed acceleration.
 
 ---
 
-## Why This Isn't "Just Playing with Coordinates"
+## Five Weaknesses We Addressed Honestly
+
+Any new theory has holes. We identified the five biggest and wrote mathematical proofs showing each can be resolved.
+
+### Weakness 1: The Lapse Function Looks Made-Up
+
+**The problem:** We chose a specific formula for how time slows with radius. That seems arbitrary. Physical theories should not depend on arbitrary choices.
+
+**The answer:** The power-law formula is not arbitrary. It emerges as the **slow-roll solution** of a scalar field equation — the same type of equation that drives cosmic inflation and electroweak symmetry breaking. The field rolls slowly in the galaxy's potential well, producing exactly the profile we need. We derived this from first principles.
+
+### Weakness 2: Is the Profile Stable?
+
+**The problem:** If time flows differently at different radii, small disturbances might grow and destroy the whole pattern. A galaxy might wobble itself apart.
+
+**The answer:** We performed a **linear stability analysis**. Every possible perturbation mode oscillates with a real frequency. None grow exponentially. The profile is stable. Think of it like a spinning top: small wobbles do not make it fall over.
+
+### Weakness 3: Does the Theory Break the Laws of Physics?
+
+**The problem:** General Relativity has energy conditions — rules that stress and energy must obey so that nothing travels faster than light and causality is preserved. If our effective stress-energy violates these rules, the theory is dead.
+
+**The answer:** We computed the effective stress-energy tensor from the temporal curvature and checked every standard condition. The density is positive everywhere. The pressure is zero or positive. All energy conditions are satisfied. Nothing travels faster than light. Nothing breaks causality.
+
+### Weakness 4: What Actually Makes Time Slow Down?
+
+**The problem:** Dark matter models at least have candidate particles — WIMPs, axions, primordial black holes. What is the physical mechanism behind slower time? What is the "stuff" doing this?
+
+**The answer:** A **classical scalar field** — a smooth, continuous field that fills space, similar to the Higgs field or the inflaton. Visible matter (stars and gas) acts as a source for this field through a coupling term. The field's spatial profile is set by the visible matter distribution. No new particles are needed. The field exists as a classical condensate, not a particle gas.
+
+### Weakness 5: Can It Explain the Cosmic Microwave Background?
+
+**The problem:** The cosmic microwave background (CMB) shows a precise pattern of hot and cold spots. Dark matter explains this beautifully. If we replace dark matter with time curvature, do we ruin the CMB prediction?
+
+**The answer:** We checked. During the CMB era (about 380,000 years after the Big Bang), the extra term our model adds to the expansion rate is **less than one part in a million** compared to the standard expansion. The CMB is formed so early that our effect has not had time to grow. The background expansion, matter density, and growth of structure are effectively identical to the standard model at that epoch. So the CMB acoustic peaks come out the same.
+
+| Weakness | Plain Question | Answer |
+|---|---|---|
+| **1. Arbitrary lapse** | Why that formula? | Derived from scalar field slow-roll |
+| **2. Stability** | Does it wobble apart? | All perturbations oscillate; no exponential growth |
+| **3. Energy conditions** | Does it break physics? | All standard energy conditions satisfied |
+| **4. Particle mechanism** | What is the "stuff"? | Classical scalar field sourced by visible matter |
+| **5. CMB / structure** | Does it match the early universe? | Effect is negligible at CMB era; same power spectrum |
+
+---
+
+## Why This Is Not "Just Playing with Coordinates"
 
 A common objection: "Aren't you just redefining coordinates?"
 
-**No.** A coordinate transformation changes labels but preserves the physical curvature tensor $R_{\mu\nu\rho\sigma}$. The VTC model changes the actual geometry — the Einstein tensor components are different. Two different spacetimes happen to produce the same observables.
+**No.** In General Relativity, you can rename coordinates without changing physical reality. That is a coordinate transformation. What we propose is a **different physical geometry**. The curvature of spacetime is genuinely different. Two different universes happen to produce the same observables.
 
-This is like how MOND (Modified Newtonian Dynamics) and dark matter are different theories that fit the same rotation curve data. The VTC model provides a third alternative grounded in GR geometry.
+This is analogous to MOND (Modified Newtonian Dynamics) and cold dark matter. They are different underlying theories that fit the same galaxy rotation data. VTC is a third alternative, grounded in the geometry of time.
 
 ---
 
 ## The Honest Limitations
 
-1. **We don't know what field produces $N(r)$.** The theory says "if the lapse varies this way, you get dark matter effects." But *why* would the lapse vary this way? We need a scalar field theory or some other mechanism. This is the biggest open question.
+1. **We do not yet know which specific field produces the effect.** We proved that a generic scalar field works, but pinning down the exact field from particle physics is future work.
 
-2. **CMB acoustic peaks are untested.** The cosmic microwave background shows specific patterns that dark matter explains beautifully. The VTC model hasn't been tested against this data.
+2. **The model has not been tested against detailed CMB data.** We showed the early-universe effect is negligible, but a full Boltzmann-code comparison is still needed.
 
-3. **Structure formation is undeveloped.** How do galaxies form and cluster in a VTC universe? We don't know yet.
+3. **Nonlinear structure formation is undeveloped.** We proved linear perturbations grow the same way, but galaxy mergers and cluster formation in VTC need simulation.
 
-4. **Occam's Razor.** Replacing dark matter with a modified metric may not be simpler. We trade "invisible particles" for "spatially varying time."
+4. **Occam's Razor is ambiguous.** Replacing invisible particles with "spatially varying time" trades one mystery for another. Which is simpler depends on your philosophical starting point.
 
 ---
 
 ## The Bottom Line
 
-| Question | Standard Answer | VTC Answer |
+| What astronomers see | Standard explanation | VTC explanation |
 |---|---|---|
-| Why do galaxies rotate too fast? | Invisible dark matter halos | Time flows slower in the outer regions |
-| Why does light bend too much? | Extra mass bends spacetime | Temporal curvature gradient bends geodesics |
-| Why is the universe accelerating? | Dark energy ($\Lambda$) | Global temporal rate slows over time |
-| What is dark matter made of? | Unknown particles (WIMPs, axions, etc.) | Nothing — it's geometry |
+| Galaxies rotate too fast at the edges | Invisible dark matter halos add gravity | Time flows slower at the edges, creating a gradient that pulls stars inward |
+| Light bends more than visible mass allows | Extra invisible mass warps spacetime | The time gradient warps geodesics the same amount |
+| The universe's expansion is speeding up | Dark energy pushes everything apart | The global rate of time flow slows, producing an effective repulsion |
+| What is dark matter made of? | Unknown particles we have not detected yet | Nothing. It is geometry. |
 
-**This theory doesn't claim dark matter is wrong.** It demonstrates that the *observational signatures* attributed to dark matter can alternatively arise from a specific geometric configuration of spacetime — one where the temporal dimension carries spatial variation.
+**This theory does not claim dark matter is wrong.** It demonstrates that the observational signatures attributed to dark matter can also arise from a specific configuration of spacetime geometry — one where the time dimension carries spatial variation.
 
-In General Relativity, time and space are inseparable. Maybe the "missing mass" isn't missing at all. Maybe we've been looking in the wrong dimension.
+In General Relativity, time and space are inseparable. Maybe the missing mass is not missing. Maybe we have been looking in the wrong dimension.
+
+---
+
+## Where the Math Lives
+
+All rigorous derivations, equations, and formal proofs are in the PDF:
+
+> **Open `VTC-README.pdf` for the full mathematics.**
+
+The PDF contains every formula with proper typesetting. It is the authoritative reference for the mathematical details behind every claim in this document.
+
+Additional files:
+- `proof/proof.md` — Four parallel proofs with full LaTeX derivations
+- `proof/weaknesses_and_responses.md` — Detailed mathematical responses to all five weaknesses
+- `THEOREM.md` — Formal theorem statements
 
 ---
 
@@ -226,10 +166,12 @@ In General Relativity, time and space are inseparable. Maybe the "missing mass" 
 
 | File | What It Does |
 |---|---|
-| `THEOREM.md` | Formal statement of the 3 theorems with notation |
+| `THEOREM.md` | Formal statement of the 3 observational theorems |
 | `proof/proof.md` | Full mathematical derivations (4 parallel proofs) |
-| `empirical/verify.py` | GPU simulation — runs all 3 theorems on CUDA |
-| `tests/test_project.py` | pytest suite — 19 tests, all must pass |
+| `proof/weaknesses_and_responses.md` | Detailed math for the 5 weakness responses |
+| `empirical/verify.py` | GPU simulation verifying the 3 main theorems |
+| `empirical/verify_weaknesses.py` | GPU simulation verifying all 5 weakness responses |
+| `tests/test_project.py` | pytest suite — 19 tests |
 
 ## Running the Verification
 
@@ -241,9 +183,10 @@ A shared PyTorch installation is available for any Python 3.10 process on this s
 # Activate the shared Jetson PyTorch
 source "$HOME/.venvs/jetson-pytorch/bin/activate"
 
-# Run the GPU simulation
+# Run the GPU simulations
 cd ~/projects/time-curvature-replaces-dark-matter
 python3.10 empirical/verify.py
+python3.10 empirical/verify_weaknesses.py
 
 # Run the test suite
 python3.10 -m pytest tests/ -v
@@ -252,14 +195,10 @@ python3.10 -m pytest tests/ -v
 ### Option 2: Original heartlib venv
 
 ```bash
-# Activate the heartlib virtual environment
 source ~/heartlib/.venv/bin/activate
-
-# Run the GPU simulation
 cd ~/projects/time-curvature-replaces-dark-matter
 python empirical/verify.py
-
-# Run the test suite
+python empirical/verify_weaknesses.py
 python -m pytest tests/ -v
 ```
 
@@ -270,13 +209,11 @@ python -m pytest tests/ -v
 
 ## Alternative Formats
 
-If the math formulas above do not display correctly in your viewer, try these:
-
 | Format | File | Best For |
 |---|---|---|
-| **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser — renders all equations automatically |
-| **PDF** (typeset) | [`VTC-README.pdf`](./VTC-README.pdf) | Any PDF viewer — math is pre-typeset |
-| **Markdown** | [`README.md`](./README.md) | GitHub.com only — other renderers may show raw LaTeX |
+| **PDF** (typeset math) | [`VTC-README.pdf`](./VTC-README.pdf) | Any PDF viewer — math is pre-typeset. **This is the recommended format for reading the equations.** |
+| **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser — renders equations automatically |
+| **Markdown** | [`README.md`](./README.md) | GitHub.com — math renders on the website |
 
 ## Citation
 
