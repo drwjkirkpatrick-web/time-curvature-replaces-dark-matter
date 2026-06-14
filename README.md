@@ -1,5 +1,7 @@
 # Variable Temporal Curvature (VTC) — Why This Theory Works
 
+> **Note:** This README contains LaTeX math. For best display, view on GitHub (math renders automatically) or use a Markdown viewer with MathJax support.
+
 ## The Short Version
 
 Dark matter was invented because galaxies rotate too fast. Stars at the edge of a galaxy move at the same speed as stars near the center, even though there isn't enough visible mass to hold them there. Physicists solved this by adding invisible "dark matter" — extra mass we can't see.
@@ -30,7 +32,9 @@ The **gradient** in how fast time flows creates an effective force — just like
 
 Einstein's field equations are:
 
-$$G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$$
+$$
+G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+$$
 
 The left side ($G_{\mu\nu}$) describes spacetime geometry. The right side ($T_{\mu\nu}$) describes matter and energy. **BUT** — in the standard formulation of GR, the way we "slice" spacetime into space + time is not unique.
 
@@ -44,7 +48,9 @@ In standard cosmology, we choose $N = 1$ everywhere. This is a **convention**, n
 
 Our theory chooses:
 
-$$N(r) = \left(\frac{r}{r_0}\right)^{v_0^2/c^2}$$
+$$
+N(r) = \left(\frac{r}{r_0}\right)^{v_0^2/c^2}
+$$
 
 This means: **the farther you are from a galaxy's center, the slower your clock ticks relative to a distant observer.** The difference is tiny — parts per billion — but over galactic scales, the accumulated effect produces what looks like extra gravity.
 
@@ -56,15 +62,21 @@ This means: **the farther you are from a galaxy's center, the slower your clock 
 
 For a particle on a circular orbit, the geodesic equation gives:
 
-$$v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + c^2 r \frac{N'(r)}{N(r)}$$
+$$
+v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + c^2 r \frac{N'(r)}{N(r)}
+$$
 
 For our lapse function:
 
-$$\frac{N'}{N} = \frac{\alpha}{r} = \frac{v_0^2}{c^2 r}$$
+$$
+\frac{N'}{N} = \frac{\alpha}{r} = \frac{v_0^2}{c^2 r}
+$$
 
 Substituting:
 
-$$v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + v_0^2$$
+$$
+v^2(r) = \frac{GM_{\text{vis}}(r)}{r} + v_0^2
+$$
 
 **At large radii, the visible mass term decays, leaving $v^2 \to v_0^2$ = constant.**
 
@@ -74,7 +86,9 @@ This is a **flat rotation curve** — exactly what astronomers observe. No dark 
 
 In GR, curvature sources matter. If temporal curvature creates effective energy density, we can ask: what mass distribution would produce the same curvature?
 
-$$\rho_{\text{eff}} = \frac{c^2}{4\pi G}\nabla^2\ln N = \frac{v_0^2}{4\pi G r^2}$$
+$$
+\rho_{\text{eff}} = \frac{c^2}{4\pi G}\nabla^2\ln N = \frac{v_0^2}{4\pi G r^2}
+$$
 
 This is the **isothermal sphere** — the standard dark matter density profile. The VTC model produces the exact same effective density without any particles.
 
@@ -82,15 +96,21 @@ This is the **isothermal sphere** — the standard dark matter density profile. 
 
 The effective potential for orbital motion gains an extra term:
 
-$$V_{\text{eff}}(r) = -\frac{GMm}{r} + \frac{L^2}{2mr^2} - mc^2\ln N(r)$$
+$$
+V_{\text{eff}}(r) = -\frac{GMm}{r} + \frac{L^2}{2mr^2} - mc^2\ln N(r)
+$$
 
 For $N(r) \sim r^\alpha$:
 
-$$V_{\text{VTC}}(r) = -mc^2\alpha\ln\frac{r}{r_0}$$
+$$
+V_{\text{VTC}}(r) = -mc^2\alpha\ln\frac{r}{r_0}
+$$
 
 The gradient gives an inward force:
 
-$$F_{\text{VTC}} = \frac{mc^2\alpha}{r}$$
+$$
+F_{\text{VTC}} = \frac{mc^2\alpha}{r}
+$$
 
 This is an attractive $1/r$ force, identical to what an isothermal dark matter halo would produce.
 
@@ -98,11 +118,15 @@ This is an attractive $1/r$ force, identical to what an isothermal dark matter h
 
 Computing the Einstein tensor for the VTC metric shows that the temporal curvature terms exactly match the contribution from an isothermal dark matter density:
 
-$$G_{00} = \text{(visible matter terms)} + \frac{2\alpha^2}{r^2}$$
+$$
+G_{00} = \text{(visible matter terms)} + \frac{2\alpha^2}{r^2}
+$$
 
 Setting this equal to $8\pi G\rho_{\text{DM}}$ gives:
 
-$$\rho_{\text{DM,eff}} = \frac{\alpha^2}{4\pi G r^2} = \frac{v_0^2}{4\pi G r^2}$$
+$$
+\rho_{\text{DM,eff}} = \frac{\alpha^2}{4\pi G r^2} = \frac{v_0^2}{4\pi G r^2}
+$$
 
 All four proofs converge on the same result. The VTC model is not one trick — it's a robust geometric equivalence.
 
@@ -112,7 +136,9 @@ All four proofs converge on the same result. The VTC model is not one trick — 
 
 Light doesn't have mass, but it follows geodesics (curved paths) in spacetime. The VTC metric bends light through the spatial gradient of the lapse function:
 
-$$\alpha_{\text{VTC}} = \frac{4v_0^2}{c^2 b}$$
+$$
+\alpha_{\text{VTC}} = \frac{4v_0^2}{c^2 b}
+$$
 
 where $b$ is the impact parameter. This matches the standard formula for lensing by an isothermal sphere. **Both models predict the same deflection angle.**
 
@@ -120,7 +146,9 @@ where $b$ is the impact parameter. This matches the standard formula for lensing
 
 A globally varying temporal rate $T(t) \propto t^\beta$ contributes to the Friedmann equations:
 
-$$\Lambda_{\text{VTC}} = 3\left(\frac{\dot{T}}{T}\right)^2 = \frac{3\beta^2}{t^2}$$
+$$
+\Lambda_{\text{VTC}} = 3\left(\frac{\dot{T}}{T}\right)^2 = \frac{3\beta^2}{t^2}
+$$
 
 At late times, this acts like a cosmological constant with $\beta \approx 0.48$, reproducing the observed acceleration.
 
@@ -174,12 +202,30 @@ In General Relativity, time and space are inseparable. Maybe the "missing mass" 
 
 ## Running the Verification
 
+### Option 1: Shared Jetson PyTorch (Recommended)
+
+A shared PyTorch installation is available for any Python 3.10 process on this system:
+
 ```bash
-# Activate the GPU-enabled PyTorch environment
+# Activate the shared Jetson PyTorch
+source "$HOME/.venvs/jetson-pytorch/bin/activate"
+
+# Run the GPU simulation
+cd ~/projects/time-curvature-replaces-dark-matter
+python3.10 empirical/verify.py
+
+# Run the test suite
+python3.10 -m pytest tests/ -v
+```
+
+### Option 2: Original heartlib venv
+
+```bash
+# Activate the heartlib virtual environment
 source ~/heartlib/.venv/bin/activate
 
 # Run the GPU simulation
-cd ~/projects/temporal-curvature-dark-matter
+cd ~/projects/time-curvature-replaces-dark-matter
 python empirical/verify.py
 
 # Run the test suite
@@ -188,8 +234,8 @@ python -m pytest tests/ -v
 
 ## GPU Requirements
 
-- NVIDIA GPU with CUDA support (tested on Orin, 8 GB)
-- PyTorch with CUDA (already installed in `~/heartlib/.venv`)
+- NVIDIA GPU with CUDA support (tested on Jetson Orin, 8 GB, CUDA 12.6)
+- PyTorch 2.5.0+ with CUDA (already installed in shared location)
 
 ## Citation
 
