@@ -151,11 +151,15 @@ In General Relativity, time and space are inseparable. Maybe the missing mass is
 
 All rigorous derivations, equations, and formal proofs are in the PDF:
 
-> **Open `VTC-README.pdf` for the full mathematics.**
+> **Open `VTC-Math-Paper.pdf` for the full mathematics.**
 
-The PDF contains every formula with proper typesetting. It is the authoritative reference for the mathematical details behind every claim in this document.
+This 14-page LaTeX-typeset document contains every formula with proper rendering---all equations, Greek letters, fractions, boxed results, and theorem proofs are fully visible. It is the authoritative reference for the mathematical details behind every claim in this document.
+
+**Previous PDFs:** `VTC-README.pdf` (plain-English summary, no math) is retained for the narrative overview.
 
 Additional files:
+- `VTC-Math-Paper.tex` — LaTeX source for the math paper (arXiv-ready)
+- `PUBLISHING.md` — Guide to publishing the paper on arXiv / Physical Review D
 - `proof/proof.md` — Four parallel proofs with full LaTeX derivations
 - `proof/weaknesses_and_responses.md` — Detailed mathematical responses to all five weaknesses
 - `THEOREM.md` — Formal theorem statements
@@ -211,9 +215,12 @@ python -m pytest tests/ -v
 
 | Format | File | Best For |
 |---|---|---|
-| **PDF** (typeset math) | [`VTC-README.pdf`](./VTC-README.pdf) | Any PDF viewer — math is pre-typeset. **This is the recommended format for reading the equations.** |
-| **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser — renders equations automatically |
-| **Markdown** | [`README.md`](./README.md) | GitHub.com — math renders on the website |
+| **PDF** (full math) | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) | 14-page LaTeX paper with all equations, theorems, and proofs. **This is the recommended format for reading the mathematics.** |
+| **LaTeX source** | [`VTC-Math-Paper.tex`](./VTC-Math-Paper.tex) | arXiv submission, peer-review journal submission, or customization |
+| **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser --- renders equations automatically |
+| **Markdown** | [`README.md`](./README.md) | GitHub.com --- math renders on the website |
+| **Plain-English PDF** | [`VTC-README.pdf`](./VTC-README.pdf) | Narrative overview with no equations |
+| **Publishing guide** | [`PUBLISHING.md`](./PUBLISHING.md) | How to submit to arXiv / Physical Review D / CQG |
 
 ## Citation
 
