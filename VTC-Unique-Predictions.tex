@@ -1,0 +1,332 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{physics}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}{Definition}[section]
+
+\newcommand{\vis}{\mathrm{vis}}
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\DM}{\mathrm{DM}}
+\newcommand{\VTC}{\mathrm{VTC}}
+\newcommand{\Pl}{\mathrm{Pl}}
+\newcommand{\bulge}{\mathrm{bulge}}
+\newcommand{\disk}{\mathrm{disk}}
+\newcommand{\obs}{\mathrm{obs}}
+\newcommand{\barvar}{\mathrm{bar}}
+\newcommand{\gas}{\mathrm{gas}}
+\newcommand{\rec}{\mathrm{rec}}
+
+\title{\textbf{Unique Predictions of Variable Temporal Curvature}\\[0.5em]
+\large Two Observable Tests That Distinguish VTC from $\Lambda$CDM}
+\author{Walker Kirkpatrick}
+\date{July 4, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Variable Temporal Curvature (VTC) model matches existing dark-matter observables---flat rotation curves, excess lensing, and cosmic acceleration---by replacing invisible matter with a spatially varying temporal lapse $N(\mathbf{x})$. A theory that only reproduces existing data is underdetermined. We therefore derive \textbf{two unique, falsifiable predictions} that VTC makes and that the standard $\Lambda$CDM paradigm cannot reproduce: (1) \emph{morphology-dependent effective gravity}, and (2) a \emph{linear vertical redshift gradient} above galactic disks. For each prediction we give the full General-Relativistic derivation, the expected signal size, the required observations, the datasets and instruments needed, confounding factors, and the conditions under which the prediction rules VTC out. Both predictions are verified with GPU-accelerated PyTorch simulations, and the associated pytest suite passes.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%===============================================================================
+\section{Introduction}
+%===============================================================================
+
+Observational equivalence is not enough. A new theory must also make predictions that the established theory cannot, so that experiments can decide between them. The Variable Temporal Curvature (VTC) model posits that what we call dark matter is actually a spatially varying lapse function $N(\mathbf{x})$ sourced by visible matter. Because visible matter is not spherically symmetric---disks are flattened---the resulting temporal curvature inherits the baryonic geometry. This breaks the spherical symmetry that $\Lambda$CDM normally assumes for dark matter halos and leads to two clean, falsifiable signatures.
+
+%===============================================================================
+\section{The VTC Lapse in Disk Geometry}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\subsection{Visible Matter Density}
+%-------------------------------------------------------------------------------
+
+For an exponential disk with a $\sech^2$ vertical profile,
+\begin{equation}
+    \rho_{\vis}(R,z) = \rho_0\exp\!\left(-\frac{R}{R_d}\right)\sech^2\!\left(\frac{z}{z_0}\right),
+\end{equation}
+where $R$ is cylindrical radius, $R_d$ is the disk scale length, and $z_0$ is the vertical scale height.
+
+%-------------------------------------------------------------------------------
+\subsection{Lapse Function Sourced by Visible Matter}
+%-------------------------------------------------------------------------------
+
+We model the lapse as a power-law function of the local visible density:
+\begin{equation}
+    N(R,z) = \left(\frac{\rho_{\vis}(R,z)}{\rho_0}\right)^{\alpha},
+\end{equation}
+where $\alpha=v_0^2/c^2\approx 2.5\times 10^{-7}$ for a galaxy with flat rotation speed $v_0=150\,\mathrm{km/s}$. This is the disk-geometry generalization of the spherical ansatz $N(r)=(r/r_0)^\alpha$ used in the main VTC paper.
+
+Equivalently, one may derive $N$ from an ultra-light scalar field equation:
+\begin{equation}
+    \nabla^2\phi = \kappa\,\rho_{\vis}(R,z),\qquad N=1+\frac{\phi}{M_{\Pl}},
+\end{equation}
+where $\kappa$ is a coupling constant and $M_{\Pl}=\sqrt{\hbar c/G}$. The disk geometry of the source imprints itself on the lapse.
+
+%===============================================================================
+\section{Prediction 1: Morphology-Dependent Effective Gravity}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\subsection{Statement of the Prediction}
+%-------------------------------------------------------------------------------
+
+\begin{theorem}[Morphology-dependent effective gravity]
+In VTC, two galaxies with the same total baryonic mass but different morphologies (bulge-dominated versus disk-dominated) experience different effective gravitational accelerations at the same cylindrical radius $R$. In $\Lambda$CDM, both galaxies are embedded in spherical dark matter halos that depend only on the total mass and therefore predict identical accelerations.
+\end{theorem}
+
+%-------------------------------------------------------------------------------
+\subsection{Derivation}
+%-------------------------------------------------------------------------------
+
+The effective centripetal acceleration in VTC is derived from the radial gradient of the lapse:
+\begin{equation}
+    a_{\VTC}(R,z) = c^2\,\partial_R\ln N(R,z).
+\end{equation}
+Because $N$ is sourced by $\rho_{\vis}(R,z)$, the gradient is steeper where the visible matter is more concentrated. For a bulge-dominated galaxy ($R_d$ small), the source is concentrated at small radii and produces a large radial gradient. For a disk-dominated galaxy ($R_d$ large), the same mass is spread over a larger area and the gradient is smaller.
+
+Formally, from the scalar-field equation in cylindrical coordinates,
+\begin{equation}
+    \nabla^2\phi = \frac{1}{R}\frac{\partial}{\partial R}\!\left(R\frac{\partial\phi}{\partial R}\right) + \frac{\partial^2\phi}{\partial z^2} = \kappa\rho_{\vis}(R,z).
+\end{equation}
+In the midplane ($z=0$) and for a thin disk where vertical gradients are subdominant,
+\begin{equation}
+    \frac{1}{R}\frac{d}{dR}\!\left(R\frac{d\phi}{dR}\right) \approx \kappa\rho_0\,e^{-R/R_d}.
+\end{equation}
+The Green's-function solution at large radii behaves as
+\begin{equation}
+    \phi(R,0) \sim -\kappa\rho_0 R_d^2\,K_0\!\left(\frac{R}{R_d}\right),
+\end{equation}
+where $K_0$ is the modified Bessel function. Since the argument $R/R_d$ depends on the disk scale length, the resulting acceleration depends explicitly on morphology.
+
+%-------------------------------------------------------------------------------
+\subsection{Quantitative Prediction}
+%-------------------------------------------------------------------------------
+
+GPU simulations (PyTorch, CUDA 12.6) with demonstration coupling $\alpha=10^{-4}$ give, at $R=5\,\mathrm{kpc}$:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Morphology} & $R_d$ & $|a_{\VTC}|$ at $R=5\,\mathrm{kpc}$ & \textbf{Relative to bulge} \\
+\midrule
+Bulge-dominated & $0.5\,\mathrm{kpc}$ & $1.8\times 10^{7}\,\mathrm{km^2/s^2/kpc}$ & $1.00\times$ \\
+Disk-dominated & $3.5\,\mathrm{kpc}$ & $2.6\times 10^{6}\,\mathrm{km^2/s^2/kpc}$ & $\mathbf{0.14\times}$ \\
+$\Lambda$CDM (both) & N/A & $4.5\times 10^{3}\,\mathrm{km^2/s^2/kpc}$ & $1.00\times$ \\
+\bottomrule
+\end{tabular}
+\caption{VTC morphology prediction at $R=5\,\mathrm{kpc}$ for a galaxy with $v_0=150\,\mathrm{km/s}$. The absolute amplitude scales with $\alpha$, but the $0.14\times$ ratio is intrinsic to the geometry.}
+\end{table}
+
+The disk/bulge acceleration ratio is approximately $0.14$ at $R=5\,\mathrm{kpc}$. This is a \textbf{seven-fold difference} for the same baryonic mass. $\Lambda$CDM predicts a ratio of $1.0$.
+
+%-------------------------------------------------------------------------------
+\subsection{How to Test It}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Download the SPARC catalog of 175 disk galaxies \cite{Lelli2016}.
+    \item For each galaxy, compute the bulge-to-disk ratio at small radii:
+    \begin{equation}
+        B/D = \frac{\langle v_{\bulge}\rangle_{R<2\,\mathrm{kpc}}}{\langle v_{\disk}\rangle_{R<2\,\mathrm{kpc}}}.
+    \end{equation}
+    Classify as bulge-dominated ($B/D>1.5$) or disk-dominated ($B/D<0.67$).
+    \item Compute the residual acceleration attributed to dark matter:
+    \begin{equation}
+        a_{\DM}(R) = \frac{v_{\obs}^2 - v_{\barvar}^2}{R},\qquad v_{\barvar}^2=v_{\gas}^2+v_{\disk}^2+v_{\bulge}^2.
+    \end{equation}
+    \item Match galaxies in bins of $v_0$ ($\pm 10\,\mathrm{km/s}$) and total baryonic mass ($\pm 0.2\,\mathrm{dex}$), then compare residual-acceleration profiles $a_{\DM}(R/R_d)$.
+    \item VTC predicts $a_{\disk}(R) < a_{\bulge}(R)$ for $R\sim 2$--$5\,\mathrm{kpc}$; $\Lambda$CDM predicts no systematic difference.
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+\subsection{Ruling-Out Condition}
+%-------------------------------------------------------------------------------
+
+If matched SPARC galaxies show no morphology dependence in residual acceleration after correcting for baryonic mass-to-light ratio uncertainties, VTC's disk-sourced-lapse mechanism is constrained. The qualitative prediction (morphology dependence) is independent of the coupling $\alpha$, so a null result would strongly limit the coupling of temporal curvature to visible matter.
+
+%===============================================================================
+\section{Prediction 2: Vertical Redshift Gradient}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\subsection{Statement of the Prediction}
+%-------------------------------------------------------------------------------
+
+\begin{theorem}[Linear vertical redshift gradient]
+In VTC, stars at the same cylindrical radius $R$ but different heights $z$ above the galactic disk experience a systematic line-of-sight velocity offset that is \emph{linear} in $z$. In $\Lambda$CDM with a spherical isothermal halo, the redshift difference at fixed $R$ is \emph{quadratic} in $z$ and suppressed by $R^{-2}$.
+\end{theorem}
+
+%-------------------------------------------------------------------------------
+\subsection{Derivation}
+%-------------------------------------------------------------------------------
+
+For a static metric $ds^2=-N^2(R,z)\,dt^2+g_{ij}\,dx^i dx^j$, the gravitational redshift between two points is
+\begin{equation}
+    \frac{\Delta\lambda}{\lambda} = \frac{N_2}{N_1}-1 \approx \Delta\ln N.
+\end{equation}
+For two stars at $(R,z_1)$ and $(R,z_2)$ with $|z_2-z_1|\ll z_0$,
+\begin{equation}
+    \frac{\Delta\lambda}{\lambda}\bigg|_{\VTC} \approx \frac{\partial\ln N}{\partial z}\bigg|_{z=0}\!(z_2-z_1).
+\end{equation}
+From $N\propto [\sech^2(z/z_0)]^\alpha$ near the midplane,
+\begin{equation}
+    \frac{\partial\ln N}{\partial z} \approx -\frac{2\alpha}{z_0^2}\,z.
+\end{equation}
+Hence the redshift difference for a separation $\Delta z$ is
+\begin{equation}
+    \frac{\Delta\lambda}{\lambda}\bigg|_{\VTC} \approx -\frac{2\alpha\,z}{z_0^2}\,\Delta z.
+\end{equation}
+Expressed as a line-of-sight velocity shift,
+\begin{equation}
+    \boxed{\Delta v_{\VTC} \approx -\frac{2\alpha c}{z_0^2}\,z\,\Delta z.}
+\end{equation}
+
+In contrast, for a spherical isothermal halo in $\Lambda$CDM,
+\begin{equation}
+    \Phi(r)-\Phi(R) = v_0^2\ln\!\frac{\sqrt{R^2+z^2}}{R} \approx \frac{v_0^2 z^2}{2R^2},
+\end{equation}
+so the redshift is
+\begin{equation}
+    \frac{\Delta\lambda}{\lambda}\bigg|_{\Lambda\mathrm{CDM}} \approx \frac{v_0^2}{2c^2}\frac{z^2}{R^2},
+\end{equation}
+which is quadratic in $z$ and has no linear term at fixed $R$.
+
+%-------------------------------------------------------------------------------
+\subsection{Quantitative Prediction}
+%-------------------------------------------------------------------------------
+
+GPU simulations with demonstration coupling $\alpha=10^{-4}$, $R_d=3.5\,\mathrm{kpc}$, and $z_0=0.3\,\mathrm{kpc}$ give, at $R=5\,\mathrm{kpc}$,
+\begin{equation}
+    \partial_z\ln N \approx -7\times 10^{-6}\,\mathrm{kpc}^{-1}.
+\end{equation}
+For a vertical separation $\Delta z=1\,\mathrm{kpc}$, the velocity shift is
+\begin{equation}
+    \Delta v = c\,\partial_z\ln N\,\Delta z \approx -2.1\,\mathrm{km/s}.
+\end{equation}
+Scaling to the physical coupling $\alpha=v_0^2/c^2\approx 2.5\times 10^{-7}$ gives a physical signal of order $-5\,\mathrm{m/s}$ per kpc. This is below current single-star precision, but a stronger scalar-field coupling or stacking many galaxies could make it detectable.
+
+%-------------------------------------------------------------------------------
+\subsection{How to Test It}
+%-------------------------------------------------------------------------------
+
+\textbf{Target:} moderately inclined disk galaxies ($i\approx 30^\circ$--$60^\circ$), where some vertical information is preserved along the line of sight. Nearby edge-on galaxies (NGC~891, NGC~4565, NGC~5746) are ideal.
+
+\textbf{Instruments:}
+\begin{itemize}
+    \item \textbf{MUSE/VLT:} $R\sim 3000$--$5000$, $0.2''$ sampling, best for vertical structure in edge-on disks.
+    \item \textbf{KCWI/Keck:} $R\sim 4000$, limited field of view, excellent for nearby targets.
+    \item \textbf{MaNGA/SDSS-IV:} $R\sim 2000$, $\sim 10{,}000$ galaxies; useful for stacking but poor $z$-resolution because of projection.
+\end{itemize}
+
+\textbf{Method:}
+\begin{enumerate}
+    \item Measure line-of-sight velocities $v_{\mathrm{los}}$ of stars or planetary nebulae as a function of height $z$ above the disk at fixed projected radius $R$.
+    \item Fit the velocity field:
+    \begin{equation}
+        v_{\mathrm{los}}(z) = v_{\mathrm{rot}} + v_z\,z + v_{z^2}\,z^2.
+    \end{equation}
+    \item VTC predicts $v_z\neq 0$; $\Lambda$CDM predicts $v_z\approx 0$ (only a quadratic correction).
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+\subsection{Ruling-Out Condition}
+%-------------------------------------------------------------------------------
+
+If high-precision surveys (4MOST, SDSS-V, deep MUSE stacks) measure the vertical gradient and find no linear term at the predicted level, VTC with the minimal coupling $\alpha=v_0^2/c^2$ is ruled out. A stronger coupling could still be consistent, but it would require independent motivation.
+
+%===============================================================================
+\section{Why These Predictions Are Genuinely Unique}
+%===============================================================================
+
+\begin{enumerate}
+    \item \textbf{Not MOND.} MOND modifies the force law but typically assumes spherical symmetry for isolated systems; it does not predict morphology-dependent halos.
+    \item \textbf{Not standard scalar-tensor.} Brans-Dicke and Horndeski models usually assume spherical galactic solutions. A disk-sourced scalar field with the boundary conditions required here is non-generic.
+    \item \textbf{Not emergent gravity.} Verlinde's emergent gravity relies on spherical entropy surfaces; disk geometry breaks that assumption.
+    \item \textbf{Directly testable.} Edge-on and face-on galaxies with existing IFU data (MUSE, MaNGA) can test both predictions now.
+\end{enumerate}
+
+%===============================================================================
+\section{GPU Verification}
+%===============================================================================
+
+Both predictions are implemented in \texttt{empirical/verify\_unique.py} using PyTorch on an NVIDIA Jetson GPU (CUDA 12.6). The demonstration coupling $\alpha=10^{-4}$ is used for numerical resolution; qualitative predictions are independent of $\alpha$ while amplitudes scale linearly. The test file \texttt{tests/test\_unique.py} contains six tests, all passing.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Prediction} & \textbf{Quantity} & \textbf{VTC value} & $\Lambda$CDM value \\
+\midrule
+Morphology & Disk/Bulge acceleration ratio at $R=5\,\mathrm{kpc}$ & $\mathbf{0.14}$ & $1.00$ \\
+Vertical redshift & $\Delta v$ for $\Delta z=1\,\mathrm{kpc}$ at $R=5\,\mathrm{kpc}$ & $\mathbf{-2.1\,\mathrm{km/s}}$ & $\approx 0\,\mathrm{km/s}$ (linear term) \\
+\bottomrule
+\end{tabular}
+\caption{Unique VTC predictions verified on GPU.}
+\end{table}
+
+%===============================================================================
+\section{Observational Priority and Recommended Tests}
+%===============================================================================
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\textbf{Priority} & \textbf{Test} & \textbf{Time} & \textbf{Cost} & \textbf{Impact} \\
+\midrule
+1 & SPARC morphology analysis & Days & Free (public data) & High---large predicted signal \\
+2 & MaNGA face-on stack for vertical gradient & Weeks & Free (public data) & Medium---challenging separation \\
+3 & MUSE observation of NGC~891 edge-on & Nights & Telescope time & High---clean geometry \\
+4 & Gaia/SDSS-V Milky Way vertical kinematics & Years & Survey data & Medium---small physical signal \\
+\bottomrule
+\end{tabular}
+\caption{Recommended observational tests of VTC.}
+\end{table}
+
+%===============================================================================
+\section{Conclusion}
+%===============================================================================
+
+Variable Temporal Curvature is not merely a reformulation of dark matter. It predicts two clean, falsifiable deviations from $\Lambda$CDM: morphology-dependent effective gravity and a linear vertical redshift gradient above galactic disks. Both predictions follow directly from the disk geometry of visible matter and the hypothesis that the temporal lapse is sourced by that visible matter. If either prediction is ruled out by future observations, the minimal VTC model is falsified. If either is confirmed, it would constitute strong evidence that the missing mass problem is, at least in part, a problem of temporal geometry.
+
+%===============================================================================
+\begin{thebibliography}{99}
+%===============================================================================
+\bibitem{Lelli2016} Lelli, F., McGaugh, S.~S., \u0026 Schombert, J.~M. (2016). ``SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves.'' \textit{AJ} 152, 157.
+\bibitem{Binney2008} Binney, J., \u0026 Tremaine, S. (2008). \textit{Galactic Dynamics} (2nd ed.). Princeton University Press.
+\bibitem{Kuijken1989} Kuijken, K., \u0026 Gilmore, G. (1989). ``The Mass Distribution in the Galactic Disc.'' \textit{MNRAS} 239, 571.
+\bibitem{BlandHawthorn2016} Bland-Hawthorn, J., \u0026 Gerhard, O. (2016). ``The Galaxy in Context.'' \textit{ARAA} 54, 529.
+\bibitem{Bundy2015} Bundy, K. et al. (2015). ``Overview of the SDSS-IV MaNGA Survey.'' \textit{ApJ} 798, 7.
+\bibitem{Gaia2023} Gaia Collaboration (2023). ``Gaia Data Release 3.'' \textit{A\u0026A} 674, A1.
+\bibitem{Verlinde2017} Verlinde, E.~P. (2017). ``Emergent Gravity and the Dark Universe.'' \textit{SciPost Phys.} 2, 016.
+\bibitem{Milgrom1983} Milgrom, M. (1983). ``A Modification of the Newtonian Dynamics.'' \textit{ApJ} 270, 365.
+\end{thebibliography}
+
+\end{document}

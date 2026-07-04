@@ -177,16 +177,21 @@ In General Relativity, time and space are inseparable. Maybe the missing mass is
 
 All rigorous derivations, equations, and formal proofs are in the PDF:
 
-> **Open `VTC-Math-Paper.pdf` for the full mathematics.**
+> **Open `VTC-Math-Paper.pdf` for the full foundational mathematics, and `VTC-Unique-Predictions.pdf` for the two ΛCDM-unique predictions.**
 
-This 14-page LaTeX-typeset document contains every formula with proper rendering---all equations, Greek letters, fractions, boxed results, and theorem proofs are fully visible. It is the authoritative reference for the mathematical details behind every claim in this document.
+`VTC-Math-Paper.pdf` (12 pages) contains the ADM split, the lapse ansatz, the three main theorems proved four ways each (geodesic, effective density, Hamilton-Jacobi, Einstein tensor), and the five weakness responses. `VTC-Unique-Predictions.pdf` (7 pages) contains the morphology and vertical-redshift predictions with full derivations, expected signal sizes, instruments, datasets, and ruling-out conditions.
+
+Both PDFs are LaTeX-typeset with all equations, Greek letters, fractions, boxed results, theorem/proof environments, and reference tables fully visible. They are the authoritative references for the mathematical details behind every claim in this document.
 
 **Previous PDFs:** `VTC-README.pdf` (plain-English summary, no math) is retained for the narrative overview.
 
 Additional files:
-- `VTC-Math-Paper.tex` — LaTeX source for the math paper (arXiv-ready)
-- `PUBLISHING.md` — Guide to publishing the paper on arXiv / Physical Review D
+- `VTC-Math-Paper.tex` / `VTC-Math-Paper.pdf` — Foundational math paper (12 pages, arXiv-ready)
+- `VTC-Unique-Predictions.tex` / `VTC-Unique-Predictions.pdf` — Unique predictions paper (7 pages)
+- `PUBLISHING.md` — Guide to publishing the papers on arXiv / Physical Review D / CQG
 - `proof/proof.md` — Four parallel proofs with full LaTeX derivations
+- `proof/unique_predictions.md` — Two GR derivations for ΛCDM-unique predictions
+- `proof/observational_tests.md` — Practical test protocols, datasets, and ruling-out conditions
 - `proof/weaknesses_and_responses.md` — Detailed mathematical responses to all five weaknesses
 - `THEOREM.md` — Formal theorem statements
 
@@ -244,8 +249,9 @@ python -m pytest tests/ -v
 
 | Format | File | Best For |
 |---|---|---|
-| **PDF** (full math) | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) | 14-page LaTeX paper with all equations, theorems, and proofs. **This is the recommended format for reading the mathematics.** |
-| **LaTeX source** | [`VTC-Math-Paper.tex`](./VTC-Math-Paper.tex) | arXiv submission, peer-review journal submission, or customization |
+| **PDF** (foundational math) | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) | 12-page LaTeX paper with all equations, theorems, and proofs. **Recommended for the core mathematics.** |
+| **PDF** (unique predictions) | [`VTC-Unique-Predictions.pdf`](./VTC-Unique-Predictions.pdf) | 7-page LaTeX paper with the two ΛCDM-unique predictions and observational protocols. |
+| **LaTeX sources** | [`VTC-Math-Paper.tex`](./VTC-Math-Paper.tex), [`VTC-Unique-Predictions.tex`](./VTC-Unique-Predictions.tex) | arXiv / journal submission or customization |
 | **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser --- renders equations automatically |
 | **Markdown** | [`README.md`](./README.md) | GitHub.com --- math renders on the website |
 | **Plain-English PDF** | [`VTC-README.pdf`](./VTC-README.pdf) | Narrative overview with no equations |
