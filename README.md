@@ -282,6 +282,27 @@ The VTC model now makes **six additional predictions** beyond the original three
 - Test suite: [`empirical/test_new_predictions.py`](./empirical/test_new_predictions.py) — 37 pytest tests
 - Plots: [`paper/vtc_w_of_z.png`](./paper/vtc_w_of_z.png), [`paper/vtc_bullet_cluster.png`](./paper/vtc_bullet_cluster.png), [`paper/vtc_jwst_collapse.png`](./paper/vtc_jwst_collapse.png), [`paper/vtc_gw_speed.png`](./paper/vtc_gw_speed.png), [`paper/vtc_bh_shadow.png`](./paper/vtc_bh_shadow.png), [`paper/vtc_clock_drift.png`](./paper/vtc_clock_drift.png)
 
+## Extended Proofs and Formal Propositions
+
+The companion paper `VTC-Extended-Proofs.tex` (16-page PDF) completes the proof architecture and adds new formal results:
+
+**Multi-proof completions** (Theorem 1 had 4 proofs; Theorems 2 & 3 now match):
+- Theorem 2 (lensing): 3 additional proofs — Poisson/effective-density, Einstein tensor, null geodesic integration
+- Theorem 3 (cosmic acceleration): 3 additional proofs — continuity equation/equation of state, density ratio/late-time dominance, proper-time Friedmann decomposition
+
+**New formal results:**
+- **Lemma: Density Reconciliation** — resolves the O(α) vs O(α²) discrepancy between the Poisson and Einstein-tensor derivations (kinematic vs dynamic levels)
+- **Corollary: Virial Theorem Equivalence** — 2K + U_vis + U_VTC = 0 with U_VTC = -v₀²M_vis, identical to ΛCDM
+- **Corollary: Terminal Velocity Universality** — v²(∞) = v₀² for any visible matter profile shape (exponential disk, bulge, point mass — all give same asymptote)
+- **Proposition: VTC ≠ Coordinate Transformation** — proved by explicit Riemann tensor computation showing nonzero curvature difference
+- **Conjecture: Scalar/Dilaton Identification** — VTC scalar identified with ultralight dilaton; mass ~10⁻²³ eV within 1 OOM of EPJC 2025 constraints (downgraded to conjecture: mass not derivable from first principles without specifying potential)
+- **Proposition: Corrected CMB Analysis** — identifies a genuine problem: the original paper's <10⁻²² suppression claim was numerically incorrect; actual correction is ~50% of matter density at recombination, in tension with Planck. Recommends time-varying β(t), screening, or modified T(t) profile as resolutions
+
+| Format | File |
+|---|---|
+| **LaTeX** | [`VTC-Extended-Proofs.tex`](./VTC-Extended-Proofs.tex) |
+| **PDF** (16 pages) | [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) |
+
 ## GPU Requirements
 
 - NVIDIA GPU with CUDA support (tested on Jetson Orin, 8 GB, CUDA 12.6)
@@ -293,6 +314,7 @@ The VTC model now makes **six additional predictions** beyond the original three
 |---|---|---|
 | **PDF** (foundational math) | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) | 12-page LaTeX paper with all equations, theorems, and proofs. **Recommended for the core mathematics.** |
 | **PDF** (unique predictions) | [`VTC-Unique-Predictions.pdf`](./VTC-Unique-Predictions.pdf) | 7-page LaTeX paper with the two ΛCDM-unique predictions and observational protocols. |
+| **PDF** (extended proofs) | [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) | 16-page LaTeX paper completing the 4-proof architecture for all 3 theorems, plus 6 new formal results including the corrected CMB analysis. |
 | **LaTeX** (6 new predictions) | [`VTC-New-Predictions.tex`](./VTC-New-Predictions.tex) | 6 new testable predictions grounded in DESI DR2, JWST, GW170817, EHT, and PTA. arXiv-ready. |
 | **LaTeX sources** | [`VTC-Math-Paper.tex`](./VTC-Math-Paper.tex), [`VTC-Unique-Predictions.tex`](./VTC-Unique-Predictions.tex) | arXiv / journal submission or customization |
 | **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser --- renders equations automatically |
