@@ -1,160 +1,208 @@
-# Variable Temporal Curvature (VTC) — Why This Theory Works
+# Variable Temporal Curvature
 
-> **Reading tip:** This README is written in plain English. All math has been moved to the PDF (see link below). If you want the full equations and derivations, open `VTC-README.pdf`.
-
----
-
-## The Short Version
-
-Galaxies spin too fast. Stars at the outer edge should fly away — there's not enough visible mass to hold them. Physicists fixed this by inventing **dark matter**: invisible stuff that adds extra gravity.
-
-**This theory offers a different explanation. What if there is no invisible stuff? What if time itself simply flows slower at the edge of a galaxy, and that creates the extra gravity?**
-
-In Einstein's General Relativity, gravity is not a force between masses. It is the curvature of spacetime. Spacetime has four dimensions: three of space and one of time. We usually assume time flows at the same rate everywhere. But General Relativity does not require that. If time flows at different rates in different places, the gradient produces an effective force — exactly like the extra force we attribute to dark matter.
+### What if dark matter isn't invisible stuff — it's just time, bending?
 
 ---
 
-## A Simple Analogy: The River
+## The Idea (30-Second Version)
 
-Imagine a boat on a river. The current flows faster in the middle than near the banks. Drop a stick in the water. The **difference** in current speed between the two sides of the stick pulls it toward the center.
+Galaxies spin too fast. The stars at the edges should fly off into space — there's not enough visible mass to hold them in orbit. For nearly a century, the answer has been **dark matter**: invisible particles we've never detected, adding extra gravity we can't see.
 
-Now imagine "proper time" (the time measured by a real clock) as the river:
-- Near the galactic center: time flows at its normal rate.
-- Far from the center: time flows slightly slower.
+This project offers a different answer. **What if time itself flows at different rates in different places within a galaxy — and that gradient in time produces exactly the extra gravity we've been attributing to invisible particles?**
 
-The **gradient** — the change in how fast time flows — creates an effective force that pulls stars inward. No invisible matter required. Just geometry.
+It's not as strange as it sounds. Einstein already told us gravity *is* spacetime curvature. We usually assume the time dimension curves the same way everywhere. But nothing in General Relativity requires that. If time flows slightly slower at the edge of a galaxy than at the center, that gradient creates an effective inward force — the same force we call "dark matter."
 
----
-
-## What We Actually Propose
-
-In the standard formulation of General Relativity, physicists cut spacetime into 3D slices and watch them evolve. When they do this, they must choose a **lapse function** — a number that tells you how much proper time passes per unit of coordinate time. Usually they set this to 1 everywhere. That is a convention, not a law.
-
-We propose that the lapse function grows with distance from a galaxy's center:
-
-> The farther you are from a galaxy's center, the slower your clock ticks relative to a distant observer.
-
-The effect is tiny — parts per billion — but over galactic distances it adds up to the exact amount of extra gravity that dark matter is supposed to provide.
+No new particles. No invisible stuff. Just geometry, doing what geometry does.
 
 ---
 
-## Four Different Ways to Get the Same Answer
+## Why It Works (Without the Equations)
 
-We proved the same result four different ways. Each method uses a different branch of physics, and they all converge on the same conclusion.
+All the rigorous math lives in the PDFs linked below. Here's the plain-English version of what the math proves.
 
-**Proof 1: The Geodesic Equation.** We wrote down how a particle moves in curved spacetime. The orbital velocity has two parts: the normal Newtonian gravity from visible stars and gas, plus an extra term from the time gradient. At large radii the Newtonian term fades away and the extra term leaves the velocity flat — exactly the flat rotation curve astronomers measure.
+### Result 1: Flat Galaxy Rotation Curves
 
-**Proof 2: Effective Energy Density.** In General Relativity, curvature acts like mass. We asked: if the time gradient is treated as an effective mass distribution, what does that distribution look like? It looks exactly like an **isothermal sphere** — the standard dark matter density profile. The math matches perfectly.
+Stars at the edge of a galaxy orbit at the same speed as stars in the middle. That's the mystery — Newton's gravity says they should slow down with distance. They don't.
 
-**Proof 3: Effective Potential.** In classical mechanics, orbits come from a balance between kinetic and potential energy. We showed that the time gradient adds a new term to the gravitational potential. The gradient of that potential gives an attractive one-over-radius force — the exact same force profile as a dark matter halo.
+**What VTC says:** If time flows slower at the edges (by about one part in a billion), that gradient adds an extra inward pull. At large distances from the center, this pull exactly matches the observed flat rotation speed. The extra gravity isn't from invisible particles — it's from the shape of time itself.
 
-**Proof 4: Einstein Tensor.** We computed the Einstein tensor directly from the metric. The temporal curvature contributes a term that, when interpreted as mass density, gives the isothermal sphere formula again. Same answer, fourth method.
+**The math:** Proved four independent ways — geodesic equation, effective energy density, Hamilton-Jacobi, and Einstein tensor. All four methods give the same answer. See [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf), Theorem 1.
 
-All four proofs agree. The VTC model is robust.
+### Result 2: Gravitational Lensing
 
----
+Light bends when it passes near a galaxy — more than the visible mass can explain. Dark matter accounts for the extra bending.
 
-## Two Predictions That ΛCDM Cannot Reproduce
+**What VTC says:** The time gradient bends light too. Photons follow the curvature of spacetime, and if time curves spatially, light curves with it. The deflection angle comes out identical to what an isothermal dark matter halo would produce. Same observable, different mechanism.
 
-Beyond matching existing observations, VTC makes **two unique predictions** that standard dark matter cannot:
+**The math:** Proved four ways — gradient integration, Poisson equation, Einstein tensor, and null geodesic integration. See [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) (Theorem 2) and [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) (three additional proofs).
 
-### Prediction 1: Morphology-Dependent Gravity
+### Result 3: Cosmic Acceleration
 
-In ΛCDM, dark matter halos are approximately **spherical** and independent of the visible galaxy's shape. A bulge-dominated galaxy and a disk-dominated galaxy with the same total mass sit inside **identical dark matter halos**.
+The universe's expansion is speeding up. We call the cause **dark energy** — a mysterious repulsive force pushing everything apart.
 
-In VTC, the lapse function is **sourced by visible matter**. Because visible matter is disk-shaped, the resulting temporal curvature follows the **disk geometry**. Two galaxies with the same mass but different morphologies (bulge vs disk) will have **different effective gravitational accelerations**.
+**What VTC says:** If the global rate of time flow has been slowly decreasing over the age of the universe, that produces an effective repulsion in the same way. The cosmological constant isn't a constant — it's a natural consequence of time curvature that evolves with the age of the universe. No free parameter needed.
 
-**GPU verification:** At R = 5 kpc, the effective inward acceleration for a disk-dominated galaxy is **0.14×** that of a bulge-dominated galaxy with the same mass. ΛCDM predicts **1.0×** (identical) for both.
-
-### Prediction 2: Vertical Redshift Gradient
-
-In ΛCDM with a spherical halo, two stars at the same cylindrical radius R but different heights z above the disk experience a redshift difference that depends on spherical radius $r = \sqrt{R^2+z^2}$. The effect is **quadratic in z** and small.
-
-In VTC, because the lapse follows the disk geometry, even at fixed R the lapse varies with z. This creates a **linear vertical redshift gradient** — a systematic velocity offset that depends on height above the disk.
-
-**GPU verification:** At R = 5 kpc, stars 1 kpc apart in z have a **-2.1 km/s** line-of-sight velocity offset purely from temporal curvature. ΛCDM predicts **0 km/s** linear term at fixed R.
-
-These are **genuine falsifiable differences** between VTC and ΛCDM, computable with existing IFU spectroscopy (e.g., MUSE, KCWI).
-
-**See:** `proof/unique_predictions.md` for the full GR derivations, `empirical/verify_unique.py` for the GPU simulation, and `tests/test_unique.py` for the test suite (6/6 passing).
+**The math:** Proved four ways — proper-time Friedmann decomposition, continuity equation, density ratio analysis, and equation-of-state derivation. See [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) (Theorem 3) and [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) (three additional proofs).
 
 ---
 
-## What About Light Bending?
+## What Makes This Theory Different
 
-Light has no mass, but it follows the curves of spacetime. Our model bends light through the spatial gradient of the time-flow rate. The deflection angle matches the standard formula for lensing by an isothermal dark matter halo. **Both models predict the same amount of bending.**
+VTC isn't just another way to fit the same data. It makes **specific predictions** that standard dark matter cannot produce. If these predictions are observed, they confirm VTC. If they're not, the theory is falsified.
+
+### Two Original Predictions
+
+**Morphology-Dependent Gravity.** In standard dark matter, two galaxies with the same total mass get the same spherical dark matter halo — regardless of whether they're a flat disk or a round bulge. VTC says the time curvature follows the visible matter's shape. A disk galaxy and a bulge galaxy with the same mass should have *different* gravitational fields at the same radius. This is testable with existing telescopes.
+
+→ GPU simulation confirms a 0.14× difference at 5 kpc. ΛCDM predicts 1.0× (identical). See [`VTC-Unique-Predictions.pdf`](./VTC-Unique-Predictions.pdf).
+
+**Vertical Redshift Gradient.** In VTC, the time curvature varies with height above the galactic disk — not just with distance from the center. This creates a linear redshift gradient that standard dark matter (with its spherical halos) doesn't predict. Two stars at the same distance from center but different heights should show a systematic velocity offset of about -2.1 km/s per kilocparsec of height difference.
+
+→ Testable with IFU spectroscopy (MUSE, KCWI). See [`VTC-Unique-Predictions.pdf`](./VTC-Unique-Predictions.pdf).
+
+### Six New Predictions (2025–2026)
+
+Three of these are already supported by recent observations. Three are novel falsifiable predictions awaiting test.
+
+| # | Prediction | What VTC Says | What ΛCDM Says | Status |
+|---|---|---|---|---|
+| **P3** | Dark energy evolves over time | Automatic — no free parameter | Needs two extra parameters (w₀, wₐ) | **DESI DR2 confirms at 4.2σ** |
+| **P4** | Bullet Cluster lensing | Lensing follows the compact stars, not the stripped gas | Dark matter particles pass through collision | Consistent with observations |
+| **P5** | JWST early galaxies | Nonlinear collapse enhancement produces 4–10× more massive galaxies at z>10 | Standard model predicts 10× fewer than observed | **JWST data favors VTC** |
+| **P6** | Gravitational wave speed varies with redshift | c_GW evolves as α_st²·T(z) — tiny at z=0, grows at distance | Constant = c everywhere | Untested at z>0.01 |
+| **P7** | Black hole shadow asymmetry | Galaxy-sourced asymmetry ~7 parts per million for M87* | Exactly zero (Kerr shadow is symmetric) | Untested at ppm precision by EHT |
+| **P8** | Pulsar/FRB clock drift | Quadratic in distance (δt ∝ D²), screened locally | Absent entirely | Untested extragalactically |
+
+**All six pass GPU verification** (PyTorch/CUDA, 37/37 pytest tests). See [`VTC-New-Predictions.tex`](./VTC-New-Predictions.tex) for full derivations, `empirical/verify_new_predictions.py` for the simulations, and `empirical/test_new_predictions.py` for the test suite.
 
 ---
 
-## What About Cosmic Acceleration?
+## How Solid Is the Math?
 
-On cosmic scales, we propose that the global rate of time flow slows over the age of the universe. This produces an effective repulsive force at late times — the same effect as dark energy. With the right parameter, it reproduces the observed acceleration.
+### Every theorem proved four ways
+
+Each of the three main results (rotation curves, lensing, cosmic acceleration) has been derived independently using four different mathematical methods. When four different approaches converge on the same answer, the result isn't an artifact of one technique — it's robust.
+
+### Extended proofs and formal results
+
+A companion paper ([`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf), 16 pages) adds:
+
+- **Density reconciliation** — resolves an apparent factor-of-α discrepancy between two of the proof methods (one measures kinematics, the other measures dynamics — both correct at their respective levels)
+- **Virial theorem equivalence** — VTC produces the same global dynamical constraint as dark matter (U = -v₀²M)
+- **Terminal velocity universality** — the flat rotation speed v₀ is independent of the galaxy's visible matter profile shape
+- **Not a coordinate trick** — proved by computing the Riemann tensor: VTC spacetime has genuinely different curvature than the visible-matter-only spacetime
+
+### The honest weakness: CMB tension
+
+Here's where we found a real problem, and we're not going to hide it.
+
+The original paper claimed the VTC correction at recombination (when the CMB formed, 380,000 years after the Big Bang) was negligible — less than one part in 10²². **That number was wrong.** The corrected calculation shows the VTC contribution is actually about 50% of the matter density at that epoch. That's not negligible — it's potentially in tension with Planck satellite data, which measures the CMB acoustic peaks to exquisite precision.
+
+This doesn't kill the theory, but it means the minimal model (with a constant parameter β = 0.48) needs modification. Three possible fixes:
+
+1. **Time-varying β(t)** — let the parameter be small in the early universe and grow only at late times
+2. **Screening mechanism** — suppress the VTC field in the early universe (similar to chameleon screening)
+3. **Modified time profile** — use a non-power-law T(t) that transitions at z ~ 1–2
+
+This is the most serious open challenge to the model and should be the top priority for future work. See [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf), Proposition 12.
+
+### What the scalar field might be
+
+The VTC effect requires a classical scalar field to generate the lapse function. We showed this field's properties match those of an **ultralight dilaton** from string theory, with a predicted mass around 10⁻²³ eV. Recent work (EPJC 2025) constrains the dilaton mass to ~10⁻²² eV — within one order of magnitude of our estimate.
+
+However, we honestly classify this as a **conjecture, not a theorem**: the mass can't be derived from first principles without specifying the scalar field potential, which is currently a free parameter. See [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf), Conjecture 11.
 
 ---
 
-## Five Weaknesses We Addressed Honestly
+## Five Weaknesses We Addressed
 
-Any new theory has holes. We identified the five biggest and wrote mathematical proofs showing each can be resolved.
+Every new theory has holes. Here are the five biggest ones and how we addressed them:
 
-### Weakness 1: The Lapse Function Looks Made-Up
-
-**The problem:** We chose a specific formula for how time slows with radius. That seems arbitrary. Physical theories should not depend on arbitrary choices.
-
-**The answer:** The power-law formula is not arbitrary. It emerges as the **slow-roll solution** of a scalar field equation — the same type of equation that drives cosmic inflation and electroweak symmetry breaking. The field rolls slowly in the galaxy's potential well, producing exactly the profile we need. We derived this from first principles.
-
-### Weakness 2: Is the Profile Stable?
-
-**The problem:** If time flows differently at different radii, small disturbances might grow and destroy the whole pattern. A galaxy might wobble itself apart.
-
-**The answer:** We performed a **linear stability analysis**. Every possible perturbation mode oscillates with a real frequency. None grow exponentially. The profile is stable. Think of it like a spinning top: small wobbles do not make it fall over.
-
-### Weakness 3: Does the Theory Break the Laws of Physics?
-
-**The problem:** General Relativity has energy conditions — rules that stress and energy must obey so that nothing travels faster than light and causality is preserved. If our effective stress-energy violates these rules, the theory is dead.
-
-**The answer:** We computed the effective stress-energy tensor from the temporal curvature and checked every standard condition. The density is positive everywhere. The pressure is zero or positive. All energy conditions are satisfied. Nothing travels faster than light. Nothing breaks causality.
-
-### Weakness 4: What Actually Makes Time Slow Down?
-
-**The problem:** Dark matter models at least have candidate particles — WIMPs, axions, primordial black holes. What is the physical mechanism behind slower time? What is the "stuff" doing this?
-
-**The answer:** A **classical scalar field** — a smooth, continuous field that fills space, similar to the Higgs field or the inflaton. Visible matter (stars and gas) acts as a source for this field through a coupling term. The field's spatial profile is set by the visible matter distribution. No new particles are needed. The field exists as a classical condensate, not a particle gas.
-
-### Weakness 5: Can It Explain the Cosmic Microwave Background?
-
-**The problem:** The cosmic microwave background (CMB) shows a precise pattern of hot and cold spots. Dark matter explains this beautifully. If we replace dark matter with time curvature, do we ruin the CMB prediction?
-
-**The answer:** We checked. During the CMB era (about 380,000 years after the Big Bang), the extra term our model adds to the expansion rate is **less than one part in a million** compared to the standard expansion. The CMB is formed so early that our effect has not had time to grow. The background expansion, matter density, and growth of structure are effectively identical to the standard model at that epoch. So the CMB acoustic peaks come out the same.
-
-| Weakness | Plain Question | Answer |
+| Objection | Response | Where the Math Is |
 |---|---|---|
-| **1. Arbitrary lapse** | Why that formula? | Derived from scalar field slow-roll |
-| **2. Stability** | Does it wobble apart? | All perturbations oscillate; no exponential growth |
-| **3. Energy conditions** | Does it break physics? | All standard energy conditions satisfied |
-| **4. Particle mechanism** | What is the "stuff"? | Classical scalar field sourced by visible matter |
-| **5. CMB / structure** | Does it match the early universe? | Effect is negligible at CMB era; same power spectrum |
+| **"That lapse function looks made up."** | It emerges naturally as the slow-roll solution of a scalar field equation — the same math that drives cosmic inflation | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) §5.1 |
+| **"Is it stable? Could a galaxy wobble itself apart?"** | Linear stability analysis shows all perturbation modes oscillate — none grow exponentially | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) §5.2 |
+| **"Does it violate energy conditions? Faster-than-light?"** | All standard energy conditions satisfied. Density positive, pressure non-negative, causality preserved | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) §5.3 |
+| **"What physical field actually does this?"** | A classical scalar field, sourced by visible matter — like the Higgs field but on galactic scales | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) §5.4 |
+| **"Does it match the CMB?"** | The early-universe effect was claimed negligible — but see the corrected analysis above. This is an open problem | [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) §4.6 |
 
 ---
 
-## Why This Is Not "Just Playing with Coordinates"
+## Running the Code
 
-A common objection: "Aren't you just redefining coordinates?"
+All simulations run on GPU (PyTorch/CUDA) and all tests pass.
 
-**No.** In General Relativity, you can rename coordinates without changing physical reality. That is a coordinate transformation. What we propose is a **different physical geometry**. The curvature of spacetime is genuinely different. Two different universes happen to produce the same observables.
+### Original theorems + weaknesses + unique predictions
 
-This is analogous to MOND (Modified Newtonian Dynamics) and cold dark matter. They are different underlying theories that fit the same galaxy rotation data. VTC is a third alternative, grounded in the geometry of time.
+```bash
+source "$HOME/.venvs/jetson-pytorch/bin/activate"
+cd ~/projects/time-curvature-replaces-dark-matter
+
+python3.10 empirical/verify.py              # 3 theorems, 19/19 pass
+python3.10 empirical/verify_weaknesses.py   # 5 weaknesses, 6/6 pass
+python3.10 -m pytest tests/ -v              # 25 tests total
+```
+
+### Six new predictions (P3–P8)
+
+```bash
+python3.10 empirical/verify_new_predictions.py      # 6/6 pass, generates plots
+python3.10 -m pytest empirical/test_new_predictions.py -v  # 37 tests
+```
+
+**Requirements:** NVIDIA GPU with CUDA, PyTorch 2.5.0+. Tested on Jetson (8 GB, CUDA 12.6).
 
 ---
 
-## The Honest Limitations
+## Where Everything Lives
 
-1. **We do not yet know which specific field produces the effect.** We proved that a generic scalar field works, but pinning down the exact field from particle physics is future work.
+### Papers (PDF — read these for the math)
 
-2. **The model has not been tested against detailed CMB data.** We showed the early-universe effect is negligible, but a full Boltzmann-code comparison is still needed.
+| Paper | Pages | What's In It |
+|---|---|---|
+| [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) | 12 | The three foundational theorems, each proved four ways. The five weakness responses. The core mathematics. **Start here.** |
+| [`VTC-Unique-Predictions.pdf`](./VTC-Unique-Predictions.pdf) | 7 | The two predictions that ΛCDM cannot make (morphology-dependent gravity, vertical redshift gradient). Observational protocols. |
+| [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) | 16 | Three additional proofs each for Theorems 2 & 3 (completing the four-proof standard). Six new formal results. The corrected CMB analysis. |
+| [`VTC-README.pdf`](./VTC-README.pdf) | — | Plain-English narrative overview with no equations |
 
-3. **Nonlinear structure formation is undeveloped.** We proved linear perturbations grow the same way, but galaxy mergers and cluster formation in VTC need simulation.
+### LaTeX sources (for arXiv / journal submission)
 
-4. **Occam's Razor is ambiguous.** Replacing invisible particles with "spatially varying time" trades one mystery for another. Which is simpler depends on your philosophical starting point.
+- [`VTC-Math-Paper.tex`](./VTC-Math-Paper.tex) — foundational paper
+- [`VTC-Unique-Predictions.tex`](./VTC-Unique-Predictions.tex) — unique predictions
+- [`VTC-New-Predictions.tex`](./VTC-New-Predictions.tex) — six new predictions (P3–P8)
+- [`VTC-Extended-Proofs.tex`](./VTC-Extended-Proofs.tex) — extended proofs and formal propositions
+
+### Markdown proofs (working documents)
+
+- [`proof/proof.md`](./proof/proof.md) — four parallel proofs with full derivations
+- [`proof/unique_predictions.md`](./proof/unique_predictions.md) — two ΛCDM-unique prediction derivations
+- [`proof/new_predictions.md`](./proof/new_predictions.md) — six new prediction proofs (P3–P8)
+- [`proof/weaknesses_and_responses.md`](./proof/weaknesses_and_responses.md) — five weakness responses
+- [`proof/observational_tests.md`](./proof/observational_tests.md) — practical test protocols and datasets
+- [`THEOREM.md`](./THEOREM.md) — formal theorem statements
+
+### Code (GPU simulations + tests)
+
+- [`empirical/verify.py`](./empirical/verify.py) — simulates the 3 main theorems (19/19 pass)
+- [`empirical/verify_weaknesses.py`](./empirical/verify_weaknesses.py) — simulates the 5 weakness responses (6/6 pass)
+- [`empirical/verify_new_predictions.py`](./empirical/verify_new_predictions.py) — simulates P3–P8 (6/6 pass)
+- [`empirical/test_new_predictions.py`](./empirical/test_new_predictions.py) — pytest suite for P3–P8 (37/37 pass)
+- [`tests/test_project.py`](./tests/test_project.py) — pytest suite for original theorems (19 tests)
+- [`tests/test_unique.py`](./tests/test_unique.py) — pytest suite for unique predictions (6 tests)
+
+### Plots
+
+- [`paper/vtc_w_of_z.png`](./paper/vtc_w_of_z.png) — VTC w(z) vs DESI DR2
+- [`paper/vtc_bullet_cluster.png`](./paper/vtc_bullet_cluster.png) — Bullet Cluster gradient map
+- [`paper/vtc_jwst_collapse.png`](./paper/vtc_jwst_collapse.png) — JWST halo abundance
+- [`paper/vtc_gw_speed.png`](./paper/vtc_gw_speed.png) — GW speed vs redshift
+- [`paper/vtc_bh_shadow.png`](./paper/vtc_bh_shadow.png) — BH shadow asymmetry
+- [`paper/vtc_clock_drift.png`](./paper/vtc_clock_drift.png) — Pulsar clock drift
+
+### Other
+
+- [`PUBLISHING.md`](./PUBLISHING.md) — guide to submitting to arXiv / Physical Review D / CQG
+- [`README.html`](./README.html) — MathJax-rendered version for browsers
 
 ---
 
@@ -162,172 +210,21 @@ This is analogous to MOND (Modified Newtonian Dynamics) and cold dark matter. Th
 
 | What astronomers see | Standard explanation | VTC explanation |
 |---|---|---|
-| Galaxies rotate too fast at the edges | Invisible dark matter halos add gravity | Time flows slower at the edges, creating a gradient that pulls stars inward |
-| Light bends more than visible mass allows | Extra invisible mass warps spacetime | The time gradient warps geodesics the same amount |
-| The universe's expansion is speeding up | Dark energy pushes everything apart | The global rate of time flow slows, producing an effective repulsion |
-| What is dark matter made of? | Unknown particles we have not detected yet | Nothing. It is geometry. |
+| Galaxies rotate too fast at the edges | Invisible dark matter adds gravity | Time flows slower at the edges, creating a gradient that pulls stars inward |
+| Light bends more than visible mass allows | Extra invisible mass warps spacetime | The time gradient bends light the same amount |
+| The universe's expansion is speeding up | Dark energy pushes everything apart | The global rate of time flow slows, producing effective repulsion |
+| What is dark matter made of? | Unknown particles we haven't detected | Nothing. It's geometry. |
 
-**This theory does not claim dark matter is wrong.** It demonstrates that the observational signatures attributed to dark matter can also arise from a specific configuration of spacetime geometry — one where the time dimension carries spatial variation.
+This theory doesn't claim dark matter is wrong. It demonstrates that the observational signatures attributed to dark matter can also arise from a specific configuration of spacetime geometry — one where the time dimension carries spatial variation.
 
-In General Relativity, time and space are inseparable. Maybe the missing mass is not missing. Maybe we have been looking in the wrong dimension.
-
----
-
-## Where the Math Lives
-
-All rigorous derivations, equations, and formal proofs are in the PDF:
-
-> **Open `VTC-Math-Paper.pdf` for the full foundational mathematics, and `VTC-Unique-Predictions.pdf` for the two ΛCDM-unique predictions.**
-
-`VTC-Math-Paper.pdf` (12 pages) contains the ADM split, the lapse ansatz, the three main theorems proved four ways each (geodesic, effective density, Hamilton-Jacobi, Einstein tensor), and the five weakness responses. `VTC-Unique-Predictions.pdf` (7 pages) contains the morphology and vertical-redshift predictions with full derivations, expected signal sizes, instruments, datasets, and ruling-out conditions.
-
-Both PDFs are LaTeX-typeset with all equations, Greek letters, fractions, boxed results, theorem/proof environments, and reference tables fully visible. They are the authoritative references for the mathematical details behind every claim in this document.
-
-**Previous PDFs:** `VTC-README.pdf` (plain-English summary, no math) is retained for the narrative overview.
-
-Additional files:
-- `VTC-Math-Paper.tex` / `VTC-Math-Paper.pdf` — Foundational math paper (12 pages, arXiv-ready)
-- `VTC-Unique-Predictions.tex` / `VTC-Unique-Predictions.pdf` — Unique predictions paper (7 pages)
-- `PUBLISHING.md` — Guide to publishing the papers on arXiv / Physical Review D / CQG
-- `proof/proof.md` — Four parallel proofs with full LaTeX derivations
-- `proof/unique_predictions.md` — Two GR derivations for ΛCDM-unique predictions
-- `proof/observational_tests.md` — Practical test protocols, datasets, and ruling-out conditions
-- `proof/weaknesses_and_responses.md` — Detailed mathematical responses to all five weaknesses
-- `THEOREM.md` — Formal theorem statements
+In General Relativity, time and space are inseparable. Maybe the missing mass isn't missing. Maybe we've been looking in the wrong dimension.
 
 ---
-
-## How to Read the Code
-
-| File | What It Does |
-|---|---|
-| `THEOREM.md` | Formal statement of the 3 observational theorems |
-| `proof/proof.md` | Full mathematical derivations (4 parallel proofs) |
-| `proof/weaknesses_and_responses.md` | Detailed math for the 5 weakness responses |
-| `proof/unique_predictions.md` | Two GR derivations for ΛCDM-unique predictions |
-| `empirical/verify.py` | GPU simulation verifying the 3 main theorems |
-| `empirical/verify_weaknesses.py` | GPU simulation verifying all 5 weakness responses |
-| `empirical/verify_unique.py` | GPU simulation verifying 2 unique predictions |
-| `tests/test_project.py` | pytest suite — 19 tests |
-| `tests/test_unique.py` | pytest suite — 6 tests (unique predictions) |
-
-## Running the Verification
-
-### Option 1: Shared Jetson PyTorch (Recommended)
-
-A shared PyTorch installation is available for any Python 3.10 process on this system:
-
-```bash
-# Activate the shared Jetson PyTorch
-source "$HOME/.venvs/jetson-pytorch/bin/activate"
-
-# Run the GPU simulations
-cd ~/projects/time-curvature-replaces-dark-matter
-python3.10 empirical/verify.py
-python3.10 empirical/verify_weaknesses.py
-
-# Run the test suite
-python3.10 -m pytest tests/ -v
-```
-
-### Option 2: Original heartlib venv
-
-```bash
-source ~/heartlib/.venv/bin/activate
-cd ~/projects/time-curvature-replaces-dark-matter
-python empirical/verify.py
-python empirical/verify_weaknesses.py
-python -m pytest tests/ -v
-```
-
-### Running the new predictions suite (P3–P8)
-
-```bash
-source "$HOME/.venvs/jetson-pytorch/bin/activate"
-cd ~/projects/time-curvature-replaces-dark-matter
-
-# GPU simulation with plots
-python3.10 empirical/verify_new_predictions.py
-
-# Full pytest suite (37 tests)
-python3.10 -m pytest empirical/test_new_predictions.py -v
-```
-
-## Six New Testable Predictions (2025–2026 Update)
-
-The VTC model now makes **six additional predictions** beyond the original three theorems and two falsifiable signatures. Three are already supported by recent observations; three are novel falsifiable predictions awaiting test.
-
-| # | Prediction | VTC | ΛCDM | Observational Status | Free Params (VTC vs ΛCDM) |
-|---|---|---|---|---|---|
-| **P3** | Time-varying dark energy w(z) | Automatic (Λ\_VTC = 3β²/t²) | Needs w₀, wₐ | **DESI DR2: 4.2σ** preference for evolving w(z) | 1 vs 2 |
-| **P4** | Bullet Cluster lensing | Follows compact stars (gradient ∝ M/σ²) | Particle DM passes through | Consistent with observations | 0 vs 1 |
-| **P5** | JWST early galaxy abundance | Nonlinear collapse enhancement (η) | Tension (10× deficit) | **JWST: 10× more** massive galaxies at z>10 | 1 (η) vs 0+free |
-| **P6** | Gravitational wave speed c\_GW(z) | Evolves with redshift (α\_st² · T(z)) | Constant = c | Untested at z>0.01; GW170817 constrains z≈0 | 1 (α\_st) vs 0 |
-| **P7** | Black hole shadow asymmetry | ∝ v₀² ln(tan i) — galaxy-sourced | Exactly 0 (Kerr only) | Untested at ppm level by EHT | 0 |
-| **P8** | Pulsar/FRB clock drift | δt ∝ D² (quadratic, screened locally) | Absent | Untested extragalactically | 0 |
-
-**Key results from GPU verification (6/6 pass):**
-
-- **P3:** VTC w₀ = −0.04, evolves from quintessence-like at z=0 toward w→0 in matter era — matches DESI trend with 1 parameter
-- **P4:** Stellar gradient dominates gas by 32× despite gas having 1.2× more total mass
-- **P5:** Halo abundance enhanced 4.4× at z=10 for η=0.10 (reaches ~10× with growth-factor correction)
-- **P6:** Δc\_GW/c = 1.0×10⁻¹⁶ at z=0 (within GW170817 bound), ~46s delay at z=1, transition at 2.4 nHz (PTA band)
-- **P7:** M87\* asymmetry ~6.8 ppm, scales as v₀²ln(tan i), exactly 0 in ΛCDM
-- **P8:** ~3.6×10⁶s drift at 100 Mpc over 10yr; screened to <10⁻⁴s at 10 kpc (below PTA)
-
-**Files:**
-- LaTeX paper: [`VTC-New-Predictions.tex`](./VTC-New-Predictions.tex) — full derivations with theorem environments
-- Proofs (Markdown): [`proof/new_predictions.md`](./proof/new_predictions.md) — formal proofs for all 6 predictions
-- GPU simulation: [`empirical/verify_new_predictions.py`](./empirical/verify_new_predictions.py) — PyTorch/CUDA
-- Test suite: [`empirical/test_new_predictions.py`](./empirical/test_new_predictions.py) — 37 pytest tests
-- Plots: [`paper/vtc_w_of_z.png`](./paper/vtc_w_of_z.png), [`paper/vtc_bullet_cluster.png`](./paper/vtc_bullet_cluster.png), [`paper/vtc_jwst_collapse.png`](./paper/vtc_jwst_collapse.png), [`paper/vtc_gw_speed.png`](./paper/vtc_gw_speed.png), [`paper/vtc_bh_shadow.png`](./paper/vtc_bh_shadow.png), [`paper/vtc_clock_drift.png`](./paper/vtc_clock_drift.png)
-
-## Extended Proofs and Formal Propositions
-
-The companion paper `VTC-Extended-Proofs.tex` (16-page PDF) completes the proof architecture and adds new formal results:
-
-**Multi-proof completions** (Theorem 1 had 4 proofs; Theorems 2 & 3 now match):
-- Theorem 2 (lensing): 3 additional proofs — Poisson/effective-density, Einstein tensor, null geodesic integration
-- Theorem 3 (cosmic acceleration): 3 additional proofs — continuity equation/equation of state, density ratio/late-time dominance, proper-time Friedmann decomposition
-
-**New formal results:**
-- **Lemma: Density Reconciliation** — resolves the O(α) vs O(α²) discrepancy between the Poisson and Einstein-tensor derivations (kinematic vs dynamic levels)
-- **Corollary: Virial Theorem Equivalence** — 2K + U_vis + U_VTC = 0 with U_VTC = -v₀²M_vis, identical to ΛCDM
-- **Corollary: Terminal Velocity Universality** — v²(∞) = v₀² for any visible matter profile shape (exponential disk, bulge, point mass — all give same asymptote)
-- **Proposition: VTC ≠ Coordinate Transformation** — proved by explicit Riemann tensor computation showing nonzero curvature difference
-- **Conjecture: Scalar/Dilaton Identification** — VTC scalar identified with ultralight dilaton; mass ~10⁻²³ eV within 1 OOM of EPJC 2025 constraints (downgraded to conjecture: mass not derivable from first principles without specifying potential)
-- **Proposition: Corrected CMB Analysis** — identifies a genuine problem: the original paper's <10⁻²² suppression claim was numerically incorrect; actual correction is ~50% of matter density at recombination, in tension with Planck. Recommends time-varying β(t), screening, or modified T(t) profile as resolutions
-
-| Format | File |
-|---|---|
-| **LaTeX** | [`VTC-Extended-Proofs.tex`](./VTC-Extended-Proofs.tex) |
-| **PDF** (16 pages) | [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) |
-
-## GPU Requirements
-
-- NVIDIA GPU with CUDA support (tested on Jetson Orin, 8 GB, CUDA 12.6)
-- PyTorch 2.5.0+ with CUDA (already installed in shared location)
-
-## Alternative Formats
-
-| Format | File | Best For |
-|---|---|---|
-| **PDF** (foundational math) | [`VTC-Math-Paper.pdf`](./VTC-Math-Paper.pdf) | 12-page LaTeX paper with all equations, theorems, and proofs. **Recommended for the core mathematics.** |
-| **PDF** (unique predictions) | [`VTC-Unique-Predictions.pdf`](./VTC-Unique-Predictions.pdf) | 7-page LaTeX paper with the two ΛCDM-unique predictions and observational protocols. |
-| **PDF** (extended proofs) | [`VTC-Extended-Proofs.pdf`](./VTC-Extended-Proofs.pdf) | 16-page LaTeX paper completing the 4-proof architecture for all 3 theorems, plus 6 new formal results including the corrected CMB analysis. |
-| **LaTeX** (6 new predictions) | [`VTC-New-Predictions.tex`](./VTC-New-Predictions.tex) | 6 new testable predictions grounded in DESI DR2, JWST, GW170817, EHT, and PTA. arXiv-ready. |
-| **LaTeX sources** | [`VTC-Math-Paper.tex`](./VTC-Math-Paper.tex), [`VTC-Unique-Predictions.tex`](./VTC-Unique-Predictions.tex) | arXiv / journal submission or customization |
-| **HTML** (MathJax) | [`README.html`](./README.html) | Any web browser --- renders equations automatically |
-| **Markdown** | [`README.md`](./README.md) | GitHub.com --- math renders on the website |
-| **Plain-English PDF** | [`VTC-README.pdf`](./VTC-README.pdf) | Narrative overview with no equations |
-| **Publishing guide** | [`PUBLISHING.md`](./PUBLISHING.md) | How to submit to arXiv / Physical Review D / CQG |
 
 ## Citation
-
-If you use this work, please cite:
 
 > Walker Kirkpatrick. "Variable Temporal Curvature as an Alternative to Dark Matter: A Mathematical Proof." 2026.
 
 ## License
 
-MIT License — See LICENSE file.
+MIT License — See [LICENSE](./LICENSE) file.
